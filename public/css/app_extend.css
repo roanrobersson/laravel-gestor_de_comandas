@@ -1,0 +1,45 @@
+
+/*body {
+  Height:100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-image: url('../svg/app-background.svg');
+} */
+
+.py-4{
+  /*margin-top: 35px; */
+}
+
+.nav-title{
+  font-size: 1rem; 
+}
+
+.list-img-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.list-img-action {
+  width: 32px;
+  height: 32px;
+}
+
+.button-float {
+  position: fixed;
+  width: 20vw;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  z-index: 1;
+
+  transform: rotate(0deg);
+  transition: transform 0.5s;
+
+}
+
+.button-float:hover{
+  cursor: pointer;
+  transform: rotate(45deg);
+  transition: transform 0.5s;
+}
