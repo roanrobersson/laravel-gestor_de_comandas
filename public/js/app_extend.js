@@ -1,12 +1,18 @@
 function readURL(input) {
        if (input.files && input.files[0]) {
-           var reader = new FileReader();
 
+         if(input.files[0].size <= 1000000){
+           var reader = new FileReader();
            reader.onload = function (e) {
-               $('#blah')
+               $('#icone')
                    .attr('src', e.target.result);
            };
-
            reader.readAsDataURL(input.files[0]);
+         }else{
+           var botaoBrowse =  document.getElementsByClassName("botaoBrowse");
+           botaoBrowse.files[0] = null;
+
+         }
+
        }
    }

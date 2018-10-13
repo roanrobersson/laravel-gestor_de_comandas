@@ -13,7 +13,7 @@
 }
 
 .nav-title{
-  font-size: 1rem; 
+  font-size: 1rem;
 }
 
 .list-img-icon {
@@ -32,14 +32,62 @@
   right: 0.5rem;
   bottom: 0.5rem;
   z-index: 1;
-
   transform: rotate(0deg);
   transition: transform 0.5s;
-
 }
 
-.button-float:hover{
+.button-float:hover {
   cursor: pointer;
   transform: rotate(45deg);
   transition: transform 0.5s;
+}
+
+.barra-secundaria {
+  background-color: #3490dc;
+  position: relative;
+  padding: 1rem;
+  width: 100%;
+  height: 50px;
+}
+
+.barra-secundaria .barra-titulo {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.barra-secundaria .botao-voltar {
+  z-index: 1;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Nova Categoria*/
+.icone-upado {
+  display: block;
+  margin: auto;
+  width: auto;
+  min-height: 64px;
+  border: #ced4da solid 1px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.botao-browse {
+  display: block;
+  margin: auto;
+}
+
+.botao-submit {
+  width: 100%;
+}
+
+.botao-browse {
+  visibility:hidden;
 }

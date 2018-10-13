@@ -90,11 +90,6 @@
             </div>
         </nav>
 
-        <nav class="navbar navbar-dark bg-primary">
-          <a href="#"><img class="my-auto" src="{{ asset('img/back.png') }}" alt="img_back"></a>
-          <span class="nav-item mx-auto text-light nav">Categorias</span>
-        </nav>
-
         <main class="pb-4">
             @yield('content')
         </main>

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
+@navbar_secundaria(['btnURL' => route('home'), 'title' => 'Categorias'] )@endnavbar_secundaria
+
+
 <div class="container p-0">
 
 

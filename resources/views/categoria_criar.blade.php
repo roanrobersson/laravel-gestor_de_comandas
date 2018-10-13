@@ -1,24 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
+
+@navbar_secundaria(['btnURL' => route('categoria_listar'), 'title' => 'Nova categoria'] )@endnavbar_secundaria
+
 <div class="container p-0">
 
 
 
-          <form class="bg-white p-3">
+          <form class="bg-white p-3" action="/" method="get">
 
             <div class="form-group" >
               <label for="nomeCategoria">Nome:</label>
-              <input type="text" class="form-control" id="nomeCategoria" placeholder="Nome">
+              <input type="text" class="form-control" id="nomeCategoria" placeholder="Nome" required>
             </div>
 
             <div class="form-group">
-              <label for="exampleFormControlFile1">Example file input</label>
-              <input type="file" class="form-control-file" id="exampleFormControlFile1" onchange="readURL(this);" >
+              <label for="browseIcone">Ícone:</label>
+              <img class="icone-upado" id="icone"/>
             </div>
-            <img id="blah" alt="your image" width="50px" height="50px"/>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+              <label class= "btn btn-secondary" for="browseButton">Selecionar ícone</label>
+              <input type="file" class="botao-browse" id="browseButton" onchange="readURL(this);"  accept=".png, .jpg" width="64" height="64" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary botao-submit" >Salvar</button>
 
           </form>
 
