@@ -1,4 +1,5 @@
 function readURL(input) {
+    /* isso não está certo!
        if (input.files && input.files[0]) {
 
          if(input.files[0].size <= 1000000){
@@ -9,10 +10,10 @@ function readURL(input) {
            };
            reader.readAsDataURL(input.files[0]);
          }else{
-           var botaoBrowse =  document.getElementsByClassName("botaoBrowse");
-           botaoBrowse.files[0] = null;
+           //var botaoBrowse =  document.getElementsByClassName("botaoBrowse");
 
          }
 
        }
+      */
    }

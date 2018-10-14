@@ -24,7 +24,7 @@
 
 
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start justify-content-between">
-      <img class="list-img mr-3" src="{{ asset('img/category/x.png') }}" alt="img_categoria">
+        <img class="list-img mr-3" src="{{ asset('img/category/x.png') }}" alt="img_categoria">
       <span class="mb-1">X</span>
     </a>
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start justify-content-between">

@@ -8,7 +8,9 @@
 
 
 
-          <form class="bg-white p-3" action="/" method="get">
+          <form class="bg-white p-3" action="{{ route('categoria_salvar') }}" method="POST" enctype="multipart/form-data">
+            @method('POST')
+            @csrf
 
             <div class="form-group" >
               <label for="nomeCategoria">Nome:</label>
@@ -22,7 +24,7 @@
 
             <div class="form-group">
               <label class= "btn btn-secondary" for="browseButton">Selecionar ícone</label>
-              <input type="file" class="botao-browse" id="browseButton" onchange="readURL(this);"  accept=".png, .jpg" width="64" height="64" required>
+              <input type="file" name="arquivo_icone" class="botao-browse" id="browseButton" onchange="readURL(this);"  accept=".png, .jpg" width="64" height="64" required>
             </div>
 
             <button type="submit" class="btn btn-primary botao-submit" >Salvar</button>

@@ -31,19 +31,22 @@ class CategoriaController extends Controller
       return view('categoria_criar');
   }
 
-  public function salvar()
+  public function salvar(Request $request)
+  {
+    $path = $request->file('arquivo_icone')->store('categoria_icone');
+    return view('categoria_listar');
+    //echo('<img src="storage/categoria_icone/cachorro-quente.png" />');
+  }
+
+  public function editar($id)
   {
   }
 
-  public function editar()
+  public function atualizar($id)
   {
   }
 
-  public function atualizar()
-  {
-  }
-
-  public function apagar()
+  public function apagar($id)
   {
   }
 
