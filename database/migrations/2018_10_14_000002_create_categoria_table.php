@@ -15,16 +15,16 @@ class CreateCategoriaTable extends Migration
     {
         Schema::create('categoria', function (Blueprint $table) {
             $table->unsignedInteger('id');
-            $table->unsignedInteger('idUsuario');
+            $table->unsignedInteger('user_id');
             $table->string('nome');
             $table->string('icone');
             $table->timestamps();
 
-            $table->primary(['id', 'idUsuario']);
+            $table->primary(['id', 'user_id']);
 
             $table->unique('nome', 'categoria-nome_UNIQUE');
 
-            $table->foreign('idUsuario')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         DB::statement('ALTER TABLE categoria MODIFY id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT');

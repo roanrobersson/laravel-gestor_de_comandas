@@ -15,15 +15,15 @@ class CreateComandaTable extends Migration
     {
         Schema::create('comanda', function (Blueprint $table) {
           $table->unsignedInteger('id');
-          $table->unsignedInteger('idUsuario');
+          $table->unsignedInteger('user_id');
           $table->integer('nomeCliente');
           $table->boolean('paga');
           $table->decimal('desconto', 10, 2);
           $table->timestamps();
 
-          $table->primary(['id', 'idUsuario']);
+          $table->primary(['id', 'user_id']);
 
-          $table->foreign('idUsuario')->references('id')->on('users');
+          $table->foreign('user_id')->references('id')->on('users');
         });
 
         DB::statement('ALTER TABLE comanda MODIFY id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT');

@@ -4,6 +4,8 @@
 
 @navbar_secundaria(['btnURL' => route('categoria_listar'), 'title' => 'Nova categoria'] )@endnavbar_secundaria
 
+  @alert @endalert
+
 <div class="container p-0">
 
 

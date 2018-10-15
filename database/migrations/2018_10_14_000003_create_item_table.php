@@ -15,18 +15,18 @@ class CreateItemTable extends Migration
     {
         Schema::create('item', function (Blueprint $table) {
             $table->unsignedInteger('id');
-            $table->unsignedInteger('idUsuario');
+            $table->unsignedInteger('user_id');
             $table->integer('nome');
             $table->integer('icone');
-            $table->unsignedInteger('idCategoria');
+            $table->unsignedInteger('categoria_id');
             $table->decimal('valor', 10, 2);
             $table->timestamps();
 
-            $table->primary(['id', 'idUsuario']);
+            $table->primary(['id', 'user_id']);
 
             $table->unique('nome', 'item-nome_UNIQUE');
 
-            $table->foreign('idUsuario')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         DB::statement('ALTER TABLE item MODIFY id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT');

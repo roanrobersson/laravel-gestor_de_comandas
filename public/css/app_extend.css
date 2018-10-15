@@ -19,6 +19,7 @@
 .list-img-icon {
   width: 64px;
   height: 64px;
+  margin-right: 1rem;
 }
 
 .list-img-action {
@@ -90,4 +91,16 @@
 
 .botao-browse {
   visibility:hidden;
+}
+
+.botao-categoria-editar{
+  background-color: transparent;
+  padding: none;
+  border: none;
+  cursor: pointer;
+}
+
+.form-categoria-editar {
+  display: inline;
+
 }

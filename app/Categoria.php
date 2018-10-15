@@ -6,5 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model
 {
-    protected $table = 'categoria';   const CREATED_AT = 'creation_date';
+    protected $table = 'categoria';
+    public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+    
 }

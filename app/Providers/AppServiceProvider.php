@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::component('components.navbar_secundaria', 'navbar_secundaria');
+        Blade::component('components.alert', 'alert');
     }
 
     /**

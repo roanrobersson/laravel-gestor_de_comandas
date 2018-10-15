@@ -3,32 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Categoria;
 
 class CategoriaController extends Controller
 {
-  /**
-   * Create a new controller instance.
-   *
-   * @return void
-   */
+
   public function __construct()
   {
       $this->middleware('auth');
   }
 
-  /**
-   * Show the application dashboard.
-   *
-   * @return \Illuminate\Http\Response
-   */
   public function index()
   {
-      return view('categoria_listar');
+    $categorias = Categoria::all();
+    return view( 'categoria_listar')->with(compact('categorias'));
   }
 
   public function criar()
   {
-      return view('categoria_criar');
+    //return redirect()->back()->with('alert', 'Impossível criar categoria');
+    return view('categoria_criar');
   }
 
   public function salvar(Request $request)
@@ -40,6 +34,7 @@ class CategoriaController extends Controller
 
   public function editar($id)
   {
+
   }
 
   public function atualizar($id)
@@ -48,6 +43,7 @@ class CategoriaController extends Controller
 
   public function apagar($id)
   {
+    echo('Apagando......');
   }
 
 }
