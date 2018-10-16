@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Categoria;
 
@@ -16,40 +17,42 @@ class CategoriaController extends Controller
 
   public function index()
   {
-    $categorias = null;
-    $categorias = Categoria::all();
+    $user_id = Auth::id();
+    $categorias = Categoria::where('user_id', '=', $user_id)->get();
+
     return view( 'categoria_listar')->with(compact('categorias'));
   }
 
   public function criar()
   {
-    //return redirect()->back()->with('alert', 'Impossível criar categoria');
     return view('categoria_criar');
   }
 
   public function salvar(Request $request)
   {
+    $user_id = Auth::id();
     $categoria = new Categoria;
     $categoria->nome = $request->nome;
-    $categoria->user_id = \Auth::user()->id;
+    $categoria->user_id =  $user_id;
     $icone = $request->file('arquivo_icone')->store('categoria_icone');
     $categoria->icone = $icone;
     $categoria->save();
 
     return redirect()->route('categoria_listar')->with('alert', 'Categoria criada com sucesso!');
-    //echo('<img src="storage/categoria_icone/cachorro-quente.png" />');
   }
 
   public function editar($id)
   {
-    $categoria = Categoria::find($id);
+    $user_id = Auth::id();
+    $categoria = Categoria::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
 
     return view('categoria_editar')->with(compact('categoria'));
   }
 
   public function atualizar(Request $request, $id)
   {
-    $categoria = Categoria::find($id);
+    $user_id = Auth::id();
+    $categoria = Categoria::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
     $categoria->nome = $request->nome;
 
     //Se enviou um novo ícone substitúi o antigo, se não, mantêm o antigo
@@ -65,7 +68,8 @@ class CategoriaController extends Controller
 
   public function apagar($id)
   {
-    $categoria = Categoria::find($id);
+    $user_id = Auth::id();
+    $categoria = Categoria::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
     Storage::delete($categoria->icone);
     $categoria->delete();
 

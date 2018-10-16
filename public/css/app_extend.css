@@ -100,6 +100,13 @@
   cursor: pointer;
 }
 
+.botao-categoria-excluir{
+  background-color: transparent;
+  padding-left: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
 .form-categoria-editar {
   display: inline;
 
