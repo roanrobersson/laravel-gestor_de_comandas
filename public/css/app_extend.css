@@ -104,3 +104,12 @@
   display: inline;
 
 }
+
+
+
+
+.botaoDesligar {
+  border: 1px black solid;
+  background-color: red;
+  width: 100px;
+}
