@@ -29,3 +29,4 @@ Route::delete('/categoria/{id}', 'CategoriaController@apagar')->name('categoria_
 
 // Cardápio
 Route::get('/cardapio', 'CardapioController@index')->name('cardapio_listar');
+Route::get('/cardapio/criar', 'CardapioController@criar')->name('cardapio_criar');

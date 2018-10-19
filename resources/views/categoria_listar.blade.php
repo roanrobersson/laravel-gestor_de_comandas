@@ -2,15 +2,16 @@
 
 @section('content')
 
-  @navbar_secundaria(['btnURL' => route('home'),
-                      'title' => 'Categorias'])
+  @navbar_secundaria(['btnVoltarURL' => route('home'),
+                      'title' => 'Categorias',
+                      'btnAdicionarURL' => route('categoria_criar')]);
   @endnavbar_secundaria
 
   @alert @endalert
 
 <div class="container p-0">
 
-  <div class="list-group-flush">
+  <div class="list-group-flush lista-categorias">
 
     @forelse ($categorias as $c)
 
@@ -36,16 +37,15 @@
         </div>
 
       </div>
+
     @empty
     <div class="alert alert-danger" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         Nenhuma categoria foi cadastrada!
     </div>
     @endforelse
-</div>
 
-  <!-- Botão flutuante -->
-  <a href="{{ route('categoria_criar') }}"><img class="button-float" src="{{ asset('svg/plus.svg') }}"></a>
+</div>
 
   @isset($c)
     <!-- modal_excluir -->

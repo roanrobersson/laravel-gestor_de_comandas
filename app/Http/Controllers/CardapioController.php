@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Categoria; //APAGAR ISSO
 
 class CardapioController extends Controller
 {
@@ -23,6 +26,15 @@ class CardapioController extends Controller
    */
   public function index()
   {
-      return view('cardapio_lista');
+    $user_id = Auth::id();
+    $categorias = Categoria::where('user_id', '=', $user_id)->get();
+
+    return view('cardapio_lista')->with(compact('categorias'));
   }
+
+  public function criar()
+  {
+    return view('cardapio_criar');
+  }
+
 }

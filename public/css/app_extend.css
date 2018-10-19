@@ -8,6 +8,9 @@
   background-image: url('../svg/app-background.svg');
 } */
 
+
+
+
 .py-4{
   /*margin-top: 35px; */
 }
@@ -27,38 +30,36 @@
   height: 32px;
 }
 
-.button-float {
-  position: fixed;
-  width: 13vh;
-  right: 2vh;
-  bottom: 2vh;
-  z-index: 1;
-  transform: rotate(0deg);
-  transition: transform 0.5s;
-}
 
-.button-float:hover {
-  cursor: pointer;
-  transform: rotate(45deg);
-  transition: transform 0.5s;
-}
-
+/* Barra Secundária*/
 .barra-secundaria {
   background-color: #3490dc;
   position: relative;
-  padding: 1rem;
+  padding: 0;
   width: 100%;
   height: 50px;
 }
+.container-barra_secundaria {
+  height: 100%;
+}
+
+.subcontainer-barra_secundaria{
+  position: relative;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+}
 
 .barra-secundaria .barra-titulo {
+  font-size: 1.2rem;
   color: white;
-  font-size: 1.5rem;
-  margin: 0;
-  position: absolute;
+  z-index: 1;
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 100%;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
 }
 
 .barra-secundaria .botao-voltar {
@@ -68,6 +69,15 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+.barra-secundaria .botao-adicionar {
+  z-index: 1;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 
 /* Nova Categoria*/
 .icone-upado {
@@ -112,11 +122,22 @@
 
 }
 
-
-
-
 .botaoDesligar {
   border: 1px black solid;
   background-color: red;
   width: 100px;
+}
+
+/* Lista Categorias*/
+.lista-categorias {
+  min-height: 100vh
+}
+
+/* Lista Cardapio*/
+.lista-itens-cardapio {
+  margin-left: 1rem;
+}
+
+.background-lista-itens-cardapio {
+  background-color: #3490dc;
 }

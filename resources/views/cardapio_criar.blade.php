@@ -2,7 +2,7 @@
 
 @section('content')
 
-  @navbar_secundaria(['$btnVoltarURL' => route('categoria_listar'), 'title' => 'Nova categoria'] )@endnavbar_secundaria
+  @navbar_secundaria(['$btnVoltarURL' => route('cardapio_listar'), 'title' => 'Novo item do cardápio'] )@endnavbar_secundaria
 
 <div class="container p-0">
 
