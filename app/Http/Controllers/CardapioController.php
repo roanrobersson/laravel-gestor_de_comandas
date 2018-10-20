@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Item;
-use App\Categoria; //APAGAR ISSO
+use App\Categoria;
+use Illuminate\Database\QueryException;
 
 class CardapioController extends Controller
 {
@@ -93,10 +94,10 @@ class CardapioController extends Controller
     $user_id = Auth::id();
     $item = Item::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
     echo($item->id);
-    //$item->delete();
+    $item->delete();
 
-    //return redirect()->route('cardapio_listar')->with('alert', 'Item excluido com sucesso!')
-                                               //->with('alertClass', 'alert-success');
+    return redirect()->route('cardapio_listar')->with('alert', 'Item excluido com sucesso!')
+                                               ->with('alertClass', 'alert-success');
   }
 
 }

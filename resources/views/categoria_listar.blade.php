@@ -30,7 +30,7 @@
           <a class="botao-categoria-editar" href="{{ route('categoria_editar', ['id' => $c->id]) }}"> <img class="list-img-action" src="{{ asset('img/category/edit.png') }}" alt="img_editar"> </a>
 
           <!-- Botão excluir -->
-          <button type="button" class="botao-categoria-excluir"  data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/category/garbage.png') }}" alt="img_excluir"></button>
+          <button type="button" class="botao-categoria-excluir" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/category/garbage.png') }}" alt="img_excluir"></button>
 
         </div>
 

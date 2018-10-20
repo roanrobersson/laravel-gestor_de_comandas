@@ -119,7 +119,6 @@
 
 .form-categoria-editar {
   display: inline;
-
 }
 
 .botaoDesligar {
@@ -140,4 +139,22 @@
 
 .background-lista-itens-cardapio {
   background-color: #3490dc;
+}
+
+.botao-cardapio-editar{
+  background-color: transparent;
+  padding: none;
+  border: none;
+  cursor: pointer;
+}
+
+.botao-cardapio-excluir{
+  background-color: transparent;
+  padding-left: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.form-cardapio-editar {
+  display: inline;
 }

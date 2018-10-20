@@ -7,8 +7,15 @@
                     'btnAdicionarURL' => route('cardapio_criar')]);
 @endnavbar_secundaria
 
-<div class="container p-0">
+<!-- Scrip abrir modal Excluir -->
+<script type="text/javascript">
+  function abrirModalExcluir(id, route) {
+    var idItemApagarModal;
+    $('.form-cardapio-excluir').attr("action", route);
+};
+</script>
 
+<div class="container p-0">
 
 
   <div class="accordion" id="accordionExample">
@@ -42,10 +49,10 @@
               <div class="mb-auto mt-auto">
 
                 <!-- Botão editar -->
-                <a class="botao-categoria-editar" href="{{ route('cardapio_editar', ['id' => $i->id]) }}"> <img class="list-img-action" src="{{ asset('img/category/edit.png') }}" alt="img_editar"> </a>
+                <a class="botao-cardapio-editar" href="{{ route('cardapio_editar', ['id' => $i->id]) }}"> <img class="list-img-action" src="{{ asset('img/category/edit.png') }}" alt="img_editar"> </a>
 
                 <!-- Botão excluir -->
-                <button type="button" class="botao-categoria-excluir"  data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/category/garbage.png') }}" alt="img_excluir"></button>
+                <button type="button" class="botao-cardapio-excluir" onclick="abrirModalExcluir({{$i->id}}, '{{ route('cardapio_apagar', ['id' => $i->id]) }}' )" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/category/garbage.png') }}" alt="img_excluir"></button>
 
               </div>
 
@@ -78,7 +85,7 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 
           <!-- Botão excluír -->
-          <form class="form-categoria-editar" action={{ route('cardapio_apagar', ['id' => $i->id]) }} method="post">
+          <form class="form-cardapio-excluir" action='' method="POST">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-primary">Excluír</button>
