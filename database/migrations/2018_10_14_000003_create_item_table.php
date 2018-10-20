@@ -16,8 +16,7 @@ class CreateItemTable extends Migration
         Schema::create('item', function (Blueprint $table) {
             $table->unsignedInteger('id');
             $table->unsignedInteger('user_id');
-            $table->integer('nome');
-            $table->integer('icone');
+            $table->string('nome', 45);
             $table->unsignedInteger('categoria_id');
             $table->decimal('valor', 10, 2);
             $table->timestamps();

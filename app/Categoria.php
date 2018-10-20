@@ -13,5 +13,10 @@ class Categoria extends Model
     {
         return $this->belongsTo('App\User');
     }
-    
+
+    public function itens()
+    {
+        return $this->hasMany('App\Item');
+    }
+
 }

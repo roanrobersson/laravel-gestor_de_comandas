@@ -30,3 +30,7 @@ Route::delete('/categoria/{id}', 'CategoriaController@apagar')->name('categoria_
 // Cardápio
 Route::get('/cardapio', 'CardapioController@index')->name('cardapio_listar');
 Route::get('/cardapio/criar', 'CardapioController@criar')->name('cardapio_criar');
+Route::post('/cardapio', 'CardapioController@salvar')->name('cardapio_salvar');
+Route::get('/cardapio/{id}/editar', 'CardapioController@editar')->name('cardapio_editar');
+Route::put('/cardapio/{id}', 'CardapioController@atualizar')->name('cardapio_atualizar');
+Route::delete('/cardapio/{id}', 'CardapioController@apagar')->name('cardapio_apagar');

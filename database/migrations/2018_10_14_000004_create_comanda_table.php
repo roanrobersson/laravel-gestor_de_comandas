@@ -16,7 +16,7 @@ class CreateComandaTable extends Migration
         Schema::create('comanda', function (Blueprint $table) {
           $table->unsignedInteger('id');
           $table->unsignedInteger('user_id');
-          $table->integer('nomeCliente');
+          $table->integer('nomeCliente', 45);
           $table->boolean('paga');
           $table->decimal('desconto', 10, 2);
           $table->timestamps();

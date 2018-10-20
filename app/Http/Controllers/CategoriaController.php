@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Categoria;
+use Illuminate\Database\QueryException;
 
 class CategoriaController extends Controller
 {
@@ -15,6 +16,9 @@ class CategoriaController extends Controller
       $this->middleware('auth');
   }
 
+  /**
+  * index
+  */
   public function index()
   {
     $user_id = Auth::id();
@@ -23,6 +27,9 @@ class CategoriaController extends Controller
     return view( 'categoria_listar')->with(compact('categorias'));
   }
 
+  /**
+  * criar
+  */
   public function criar()
   {
     return view('categoria_criar');
@@ -30,17 +37,26 @@ class CategoriaController extends Controller
 
   public function salvar(Request $request)
   {
-    $user_id = Auth::id();
-    $categoria = new Categoria;
-    $categoria->nome = $request->nome;
-    $categoria->user_id =  $user_id;
-    $icone = $request->file('arquivo_icone')->store('categoria_icone');
-    $categoria->icone = $icone;
-    $categoria->save();
+    try {
+          $user_id = Auth::id();
+          $categoria = new Categoria;
+          $categoria->nome = $request->nome;
+          $categoria->user_id =  $user_id;
+          $icone = $request->file('arquivo_icone')->store('categoria_icone');
+          $categoria->icone = $icone;
+          $categoria->save();
+        } catch (QueryException $e) {
+            return redirect()->back()->with('alert', 'Já existe uma categoria com esse nome!')
+                                                        ->with('alertClass', 'alert-danger');
+        }
 
-    return redirect()->route('categoria_listar')->with('alert', 'Categoria criada com sucesso!');
+    return redirect()->route('categoria_listar')->with('alert', 'Categoria criada com sucesso!')
+                                                ->with('alertClass', 'alert-success');
   }
 
+  /**
+  * editar
+  */
   public function editar($id)
   {
     $user_id = Auth::id();
@@ -49,6 +65,9 @@ class CategoriaController extends Controller
     return view('categoria_editar')->with(compact('categoria'));
   }
 
+  /**
+  * atualizar
+  */
   public function atualizar(Request $request, $id)
   {
     $user_id = Auth::id();
@@ -63,9 +82,13 @@ class CategoriaController extends Controller
 
     $categoria->save();
 
-    return redirect()->route('categoria_listar')->with('alert', 'Categoria editada com sucesso!');
+    return redirect()->route('categoria_listar')->with('alert', 'Categoria editada com sucesso!')
+                                                ->with('alertClass', 'alert-success');
   }
 
+  /**
+  * apagar
+  */
   public function apagar($id)
   {
     $user_id = Auth::id();
@@ -73,7 +96,8 @@ class CategoriaController extends Controller
     Storage::delete($categoria->icone);
     $categoria->delete();
 
-    return redirect()->route('categoria_listar')->with('alert', 'Categoria excluida com sucesso!');
+    return redirect()->route('categoria_listar')->with('alert', 'Categoria excluida com sucesso!')
+                                                ->with('alertClass', 'alert-success');
   }
 
 }

@@ -7,8 +7,6 @@
                       'btnAdicionarURL' => route('categoria_criar')]);
   @endnavbar_secundaria
 
-  @alert @endalert
-
 <div class="container p-0">
 
   <div class="list-group-flush lista-categorias">
@@ -44,7 +42,7 @@
         Nenhuma categoria foi cadastrada!
     </div>
     @endforelse
-
+  </div>
 </div>
 
   @isset($c)

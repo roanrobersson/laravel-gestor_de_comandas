@@ -2,7 +2,9 @@
 
 @section('content')
 
-  @navbar_secundaria(['$btnVoltarURL' => route('categoria_listar'), 'title' => 'Nova categoria'] )@endnavbar_secundaria
+@navbar_secundaria(['btnVoltarURL' => route('categoria_listar'),
+                    'title' => 'Nova categoria'] )
+@endnavbar_secundaria
 
 <div class="container p-0">
 
@@ -14,7 +16,7 @@
 
             <div class="form-group" >
               <label for="nomeCategoria">Nome:</label>
-              <input type="text" name="nome" class="form-control" id="nomeCategoria" placeholder="Nome" value={{ $categoria->nome}} maxlength="15" required>
+              <input type="input" name="nome" class="form-control" id="nomeCategoria" placeholder="Nome" value={{ $categoria->nome}} maxlength="15" required>
             </div>
 
             <div class="form-group">
