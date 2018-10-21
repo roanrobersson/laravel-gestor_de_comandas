@@ -20,7 +20,7 @@
 
     <div class="form-group" >
       <label for="nomeItem">Nome:</label>
-      <input type="text" name="nome" class="form-control" id="nomeItem" placeholder="Nome" maxlength="15" required >
+      <input type="text" name="nome" class="form-control" id="nomeItem" placeholder="Nome" maxlength="30" required >
     </div>
 
     <div class="form-group">

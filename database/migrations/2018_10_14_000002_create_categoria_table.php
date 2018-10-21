@@ -22,7 +22,7 @@ class CreateCategoriaTable extends Migration
 
             $table->primary(['id', 'user_id']);
 
-            $table->unique('nome', 'categoria-nome_UNIQUE');
+            $table->unique(array('user_id', 'nome'), 'categoria-nome_UNIQUE');
 
             $table->foreign('user_id')->references('id')->on('users');
         });

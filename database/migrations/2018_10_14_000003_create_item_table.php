@@ -23,7 +23,7 @@ class CreateItemTable extends Migration
 
             $table->primary(['id', 'user_id']);
 
-            $table->unique(array('nome','categoria_id'), 'item-nome_UNIQUE');
+            $table->unique(array('user_id', 'nome', 'categoria_id'), 'item-nome_UNIQUE');
 
             $table->foreign('user_id')->references('id')->on('users');
         });

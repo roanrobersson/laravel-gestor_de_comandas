@@ -30,7 +30,7 @@ class CardapioController extends Controller
     $itens = Item::where('user_id', '=', $user_id)->get();
     $categorias = Categoria::where('user_id', '=', $user_id)->get();
 
-    return view('cardapio_lista')->with(compact('itens'))->with(compact('categorias'));
+    return view('cardapio_listar')->with(compact('itens'))->with(compact('categorias'));
   }
 
   /**
@@ -41,7 +41,12 @@ class CardapioController extends Controller
     $user_id = Auth::id();
     $categorias = Categoria::where('user_id', '=', $user_id)->get();
 
-    return view('cardapio_criar')->with(compact('categorias'));
+    if(count($categorias) > 0){
+      return view('cardapio_criar')->with(compact('categorias'));
+    }else{
+      return redirect()->back()->with('alert', 'Primeiro é necessário cadastrar uma categoria!')
+                                   ->with('alertClass', 'alert-danger');
+    }
   }
 
   /**

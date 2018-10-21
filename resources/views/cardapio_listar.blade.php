@@ -7,6 +7,8 @@
                     'btnAdicionarURL' => route('cardapio_criar')]);
 @endnavbar_secundaria
 
+
+
 <!-- Scrip abrir modal Excluir -->
 <script type="text/javascript">
   function abrirModalExcluir(id, route) {
@@ -19,7 +21,7 @@
 
 
   <div class="accordion" id="accordionExample">
-
+    @isset($categorias)
     @foreach ($categorias as $c)
       @if( count($c->itens) > 0)
 
@@ -63,11 +65,18 @@
         </div>
       </div>
 
-
       @endif
     @endforeach
-
+    @endisset
   </div>
+
+  @if(count($itens) == 0)
+  <div class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      Nenhum item foi cadastrado!
+  </div>
+  @endif
+
 
 </div>
 
