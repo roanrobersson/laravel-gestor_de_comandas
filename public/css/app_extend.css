@@ -158,3 +158,8 @@
 .form-cardapio-editar {
   display: inline;
 }
+
+.nomeItem {
+  max-width: 200px;
+  overflow: hidden;
+}

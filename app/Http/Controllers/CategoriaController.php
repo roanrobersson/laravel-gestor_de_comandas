@@ -70,17 +70,23 @@ class CategoriaController extends Controller
   */
   public function atualizar(Request $request, $id)
   {
-    $user_id = Auth::id();
-    $categoria = Categoria::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
-    $categoria->nome = $request->nome;
+    try {
+            $user_id = Auth::id();
+            $categoria = Categoria::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
+            $categoria->nome = $request->nome;
 
-    //Se enviou um novo ícone substitúi o antigo, se não, mantêm o antigo
-    if ($request->hasFile('arquivo_icone')){
-      $icone = $request->file('arquivo_icone')->store('categoria_icone');
-      $categoria->icone = $icone;
-    }
+            //Se enviou um novo ícone substitúi o antigo, se não, mantêm o antigo
+            if ($request->hasFile('arquivo_icone')){
+              $icone = $request->file('arquivo_icone')->store('categoria_icone');
+              $categoria->icone = $icone;
+            }
 
-    $categoria->save();
+            $categoria->save();
+
+        } catch (QueryException $e) {
+            return redirect()->back()->with('alert', 'Já existe uma categoria com esse nome!')
+                                                      ->with('alertClass', 'alert-danger');
+        }
 
     return redirect()->route('categoria_listar')->with('alert', 'Categoria editada com sucesso!')
                                                 ->with('alertClass', 'alert-success');

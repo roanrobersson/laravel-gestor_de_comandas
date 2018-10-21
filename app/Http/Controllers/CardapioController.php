@@ -80,7 +80,11 @@ class CardapioController extends Controller
   */
   public function editar($id)
   {
+    $user_id = Auth::id();
+    $categorias = Categoria::where('user_id', '=', $user_id)->get();
+    $item = Item::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
 
+    return view('cardapio_editar')->with(compact('categorias'))->with(compact('item'));
   }
 
   /**
@@ -88,7 +92,25 @@ class CardapioController extends Controller
   */
   public function atualizar(Request $request, $id)
   {
+    try {
+          $user_id = Auth::id();
+          $item = Item::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
+          $valor = $request->valor;
+          $valorFormatado = substr($valor, 3);
+          $valorFormatado = str_replace(".", "", $valorFormatado);
+          $valorFormatado = str_replace(",", ".", $valorFormatado);
+          $item->nome = $request->nome;
+          $item->user_id =  $user_id;
+          $item->categoria_id = $request->categoria_id;
+          $item->valor = $valorFormatado;
+          $item->save();
+        } catch (QueryException $e) {
+            return redirect()->back()->with('alert', 'Já existe um item com esse nome!')
+                                                        ->with('alertClass', 'alert-danger');
+        }
 
+    return redirect()->route('cardapio_listar')->with('alert', 'Item editado com sucesso!')
+                                                ->with('alertClass', 'alert-success');
   }
 
   /**

@@ -3,11 +3,10 @@
 @section('content')
 
 @navbar_secundaria(['btnVoltarURL' => route('categoria_listar'),
-                    'title' => 'Nova categoria'] )
+                    'title' => 'Editando categoria'] )
 @endnavbar_secundaria
 
 <div class="container p-0">
-
 
 
           <form class="bg-white p-3" action="{{ route('categoria_atualizar', ['id' => $categoria->id]) }} " method="POST" enctype="multipart/form-data">
@@ -28,7 +27,6 @@
             <button type="submit" class="btn btn-primary botao-submit" >Salvar</button>
 
           </form>
-
 
 </div>
 @endsection

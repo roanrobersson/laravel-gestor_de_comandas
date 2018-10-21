@@ -42,10 +42,10 @@
           @foreach ($c->itens as $i)
 
             <div class="list-group-item list-group-item-action d-flex justify-content-between">
-              <div class="">
+              <div class="nomeItem">
 
                 <!-- Label Nome -->
-                <span class="mb-1">{{ $i->nome }}</span>
+                <span class="mb-1 ">{{ $i->nome }}</span>
               </div>
 
               <div class="mb-auto mt-auto">
