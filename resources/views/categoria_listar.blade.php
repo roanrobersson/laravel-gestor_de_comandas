@@ -3,9 +3,15 @@
 @section('content')
 
   @navbar_secundaria(['btnVoltarURL' => route('home'),
-                      'title' => 'Categorias',
-                      'btnAdicionarURL' => route('categoria_criar')]);
+                               'title' => 'Categorias',
+                     'btnAdicionarURL' => route('categoria_criar')]);
   @endnavbar_secundaria
+
+  @modal([  'modalId' => 'modalExcluir',
+          'modalText' => 'Você realmente deseja excluír essa categoria?',
+    'btnCancelarText' => 'Cancelar',
+          'btnOKText' => 'Excluír']);
+  @endmodal
 
 <div class="container p-0">
 
@@ -30,7 +36,7 @@
           <a class="botao-categoria-editar" href="{{ route('categoria_editar', ['id' => $c->id]) }}"> <img class="list-img-action" src="{{ asset('img/category/edit.png') }}" alt="img_editar"> </a>
 
           <!-- Botão excluir -->
-          <button type="button" class="botao-categoria-excluir" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/category/garbage.png') }}" alt="img_excluir"></button>
+          <button type="button" class="botao-categoria-excluir" onclick="abrirModal({{$c->id}}, '{{ route('categoria_apagar', ['id' => $c->id]) }}' )" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/category/garbage.png') }}" alt="img_excluir"></button>
 
         </div>
 
@@ -44,32 +50,5 @@
     @endforelse
   </div>
 </div>
-
-  @isset($c)
-    <!-- modal_excluir -->
-    <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            Você realmente deseja excluír essa categoria?
-          </div>
-          <div class="modal-footer">
-
-            <!-- Botão cancelar -->
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-
-            <!-- Botão excluír -->
-            <form class="form-categoria-editar" action={{ route('categoria_apagar', ['id' => $c->id]) }} method="post">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn btn-primary">Excluír</button>
-            </form>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- modal_excluir fim -->
-  @endisset
 
 @endsection

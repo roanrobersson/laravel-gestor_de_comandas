@@ -8,7 +8,7 @@
       @endisset
 
       @isset($btnAdicionarURL)
-        <a class="botao-adicionar" href="{{ $btnAdicionarURL }}"><img src="{{ asset('img/add.png') }}" alt="img_add"></a>
+        <a class="botao-adicionar" href="{{ $btnAdicionarURL }}"><img src="{{ asset('img/add_white.png') }}" alt="img_add"></a>
       @endisset
     </div>
   </div>

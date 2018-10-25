@@ -163,3 +163,11 @@
   max-width: 200px;
   overflow: hidden;
 }
+
+.cardapioListar-botao-adicionar {
+  z-index: 1;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}

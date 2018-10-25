@@ -26,17 +26,16 @@
     <div class="form-group">
       <label for="categoria">Categoria:</label>
       <select class="form-control" name="categoria_id" id="categoria" required>
-        @forelse ($categorias as $c)
-          <option value="{{ $c->id }}"
-            @if ($c->id == $item->categoria_id)
-              selected="true"
-            @endif
-            >
-            {{ $c->nome }}
-          </option>
-        @empty
 
-        @endforelse
+        @foreach ($categorias as $c)
+
+          @if ($c->id == $item->categoria_id)
+            <option value="{{ $c->id }}" selected="true">{{ $c->nome }}</option>
+          @else
+            <option value="{{ $c->id }}">{{ $c->nome }}</option>
+          @endif
+
+        @endforeach
       </select>
     </div>
 

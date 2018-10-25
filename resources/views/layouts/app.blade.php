@@ -67,6 +67,9 @@
                                 <a class="nav-link" href="{{ route('categoria_listar') }}">Cadastro de categorias</a>
                             </li>
 
+                            <li class="nav-item d-flex justify-content-start">
+                                <a class="nav-link" href="{{ route('adicionais_listar') }}">Cadastro de adicionais</a>
+                            </li>
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex justify-content-start" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

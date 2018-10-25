@@ -36,10 +36,12 @@ class CardapioController extends Controller
   /**
   * criar
   */
-  public function criar()
+  public function criar(Request $request)
   {
+
     $user_id = Auth::id();
     $categorias = Categoria::where('user_id', '=', $user_id)->get();
+    $idCategoria = $request->input('idCategoria');
 
     if(count($categorias) > 0){
       return view('cardapio_criar')->with(compact('categorias'));

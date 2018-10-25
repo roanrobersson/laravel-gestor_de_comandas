@@ -26,11 +26,9 @@
     <div class="form-group">
       <label for="categoria">Categoria:</label>
       <select class="form-control" name="categoria_id" id="categoria" required>
-        @forelse ($categorias as $c)
-        <option value="{{ $c->id }}">{{ $c->nome }}</option>
-        @empty
-
-        @endforelse
+        @foreach ($categorias as $c)
+          <option value="{{ $c->id }}">{{ $c->nome }}</option>
+        @endforeach
       </select>
     </div>
 

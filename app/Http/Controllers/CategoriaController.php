@@ -99,11 +99,19 @@ class CategoriaController extends Controller
   {
     $user_id = Auth::id();
     $categoria = Categoria::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
-    Storage::delete($categoria->icone);
-    $categoria->delete();
 
-    return redirect()->route('categoria_listar')->with('alert', 'Categoria excluida com sucesso!')
-                                                ->with('alertClass', 'alert-success');
+    if(count($categoria->itens) == 0) {
+      Storage::delete($categoria->icone);
+      $categoria->delete();
+      return redirect()->route('categoria_listar')->with('alert', 'Categoria excluida com sucesso!')
+                                                  ->with('alertClass', 'alert-success');
+    }
+    else
+    {
+      return redirect()->route('categoria_listar')->with('alert', 'Essa categoria não pode ser excluída pois está relacionada a itens do cardápio!')
+                                                  ->with('alertClass', 'alert-danger');
+    }
+
   }
 
 }

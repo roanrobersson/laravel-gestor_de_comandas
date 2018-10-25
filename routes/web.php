@@ -1,4 +1,5 @@
 <?php
+use PharIo\Manifest\InvalidApplicationNameException;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,6 @@ Route::post('/cardapio', 'CardapioController@salvar')->name('cardapio_salvar');
 Route::get('/cardapio/{id}/editar', 'CardapioController@editar')->name('cardapio_editar');
 Route::put('/cardapio/{id}', 'CardapioController@atualizar')->name('cardapio_atualizar');
 Route::delete('/cardapio/{id}', 'CardapioController@apagar')->name('cardapio_apagar');
+
+// Adicional
+Route::get('/adicional', 'AdicionalController@index')->name('adicional_listar');
