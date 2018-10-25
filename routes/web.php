@@ -38,3 +38,8 @@ Route::delete('/cardapio/{id}', 'CardapioController@apagar')->name('cardapio_apa
 
 // Adicional
 Route::get('/adicional', 'AdicionalController@index')->name('adicional_listar');
+Route::get('/adicional/criar', 'AdicionalController@criar')->name('adicional_criar');
+Route::post('/adicional', 'AdicionalController@salvar')->name('adicional_salvar');
+Route::get('/adicional/{id}/editar', 'AdicionalController@editar')->name('adicional_editar');
+Route::put('/adicional/{id}', 'AdicionalController@atualizar')->name('adicional_atualizar');
+Route::delete('/adicional/{id}', 'AdicionalController@apagar')->name('adicional_apagar');

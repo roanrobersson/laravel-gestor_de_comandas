@@ -3,12 +3,12 @@
 @section('content')
 
   @navbar_secundaria(['btnVoltarURL' => route('home'),
-                             'title' => 'Cardápio',
-                   'btnAdicionarURL' => route('cardapio_criar')]);
+                             'title' => 'Adicionais',
+                   'btnAdicionarURL' => route('adicional_criar')]);
   @endnavbar_secundaria
 
   @modal([  'modalId' => 'modalExcluir',
-          'modalText' => 'Você realmente deseja excluír esse item?',
+          'modalText' => 'Você realmente deseja excluír esse adicional?',
     'btnCancelarText' => 'Cancelar',
           'btnOKText' => 'Excluír']);
   @endmodal

@@ -26,6 +26,7 @@ class CreateItemTable extends Migration
             $table->unique(array('user_id', 'nome', 'categoria_id'), 'item-nome_UNIQUE');
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('categoria_id')->references('id')->on('categoria');
         });
 
         DB::statement('ALTER TABLE item MODIFY id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT');

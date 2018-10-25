@@ -37,21 +37,27 @@ class CategoriaController extends Controller
 
   public function salvar(Request $request)
   {
-    try {
-          $user_id = Auth::id();
-          $categoria = new Categoria;
-          $categoria->nome = $request->nome;
-          $categoria->user_id =  $user_id;
-          $icone = $request->file('arquivo_icone')->store('categoria_icone');
-          $categoria->icone = $icone;
-          $categoria->save();
-        } catch (QueryException $e) {
-            return redirect()->back()->with('alert', 'Já existe uma categoria com esse nome!')
-                                                        ->with('alertClass', 'alert-danger');
-        }
+    $nome = $request->nome;
+    $categoria = Categoria::where('nome' , '=', $nome)->first();
 
-    return redirect()->route('categoria_listar')->with('alert', 'Categoria criada com sucesso!')
-                                                ->with('alertClass', 'alert-success');
+    if( !isset($categoria) )
+    {
+      $user_id = Auth::id();
+      $categoria = new Categoria;
+      $categoria->nome = $request->nome;
+      $categoria->user_id =  $user_id;
+      $icone = $request->file('arquivo_icone')->store('categoria_icone');
+      $categoria->icone = $icone;
+      $categoria->save();
+      return redirect()->route('categoria_listar')->with('alert', 'Categoria criada com sucesso!')
+                                                  ->with('alertClass', 'alert-success');
+    }
+    else
+    {
+      return redirect()->back()->with('alert', 'Já existe uma categoria com esse nome!')
+                                                  ->with('alertClass', 'alert-danger');
+    }
+
   }
 
   /**
@@ -70,26 +76,31 @@ class CategoriaController extends Controller
   */
   public function atualizar(Request $request, $id)
   {
-    try {
-            $user_id = Auth::id();
-            $categoria = Categoria::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
-            $categoria->nome = $request->nome;
+    $nome = $request->nome;
+    $categoria = Categoria::where('nome' , '=', $nome)->first();
 
-            //Se enviou um novo ícone substitúi o antigo, se não, mantêm o antigo
-            if ($request->hasFile('arquivo_icone')){
-              $icone = $request->file('arquivo_icone')->store('categoria_icone');
-              $categoria->icone = $icone;
-            }
+    if( !isset($categoria) )
+    {
+      $user_id = Auth::id();
+      $categoria = Categoria::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
+      $categoria->nome = $request->nome;
 
-            $categoria->save();
+      //Se enviou um novo ícone substitúi o antigo, se não, mantêm o antigo
+      if ($request->hasFile('arquivo_icone')){
+        $icone = $request->file('arquivo_icone')->store('categoria_icone');
+        $categoria->icone = $icone;
+      }
 
-        } catch (QueryException $e) {
-            return redirect()->back()->with('alert', 'Já existe uma categoria com esse nome!')
-                                                      ->with('alertClass', 'alert-danger');
-        }
+      $categoria->save();
+      return redirect()->route('categoria_listar')->with('alert', 'Categoria editada com sucesso!')
+                                                  ->with('alertClass', 'alert-success');
+    }
+    else
+    {
+      return redirect()->back()->with('alert', 'Já existe uma categoria com esse nome!')
+                                                ->with('alertClass', 'alert-danger');
+    }
 
-    return redirect()->route('categoria_listar')->with('alert', 'Categoria editada com sucesso!')
-                                                ->with('alertClass', 'alert-success');
   }
 
   /**
