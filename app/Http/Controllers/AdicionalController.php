@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Item;
 use App\Categoria;
+use App\Adicional;
 use Illuminate\Database\QueryException;
 
-class CardapioController extends Controller
+class AdicionalController extends Controller
 {
   /**
    * Create a new controller instance.
@@ -26,10 +26,10 @@ class CardapioController extends Controller
   */
   public function index()
   {
-    $itens = Item::all()->sortBy("nome");
+    $adicionais = Adicional::all()->sortBy("nome");
     $categorias = Categoria::all()->sortBy("nome");
 
-    return view('cardapio_listar')->with(compact('itens'))->with(compact('categorias'));
+    return view('adicional_listar')->with(compact('categorias'))->with(compact('adicionais'));
   }
 
   /**
@@ -41,7 +41,7 @@ class CardapioController extends Controller
     $categorias = Categoria::all()->sortBy("nome");
 
     if(count($categorias) > 0){
-      return view('cardapio_criar')->with(compact('categorias'));
+      return view('adicional_criar')->with(compact('categorias'));
     }else{
       return redirect()->back()->with('alert', 'Primeiro é necessário cadastrar uma categoria!')
                                    ->with('alertClass', 'alert-danger');
@@ -55,26 +55,26 @@ class CardapioController extends Controller
   {
     $nome = $request->nome;
     $categoria_id = $request->categoria_id;
-    $item = Item::where('nome' , $nome)->where('categoria_id', $categoria_id)->first();
+    $adicional = Adicional::where('nome' , $nome)->where('categoria_id', $categoria_id)->first();
 
-    if( !isset($item) )
+    if( !isset($adicional) )
     {
       $valor = $request->valor;
       $valorFormatado = substr($valor, 3);
       $valorFormatado = str_replace(".", "", $valorFormatado);
       $valorFormatado = str_replace(",", ".", $valorFormatado);
-      $item = new Item;
-      $item->nome = $request->nome;
-      $item->categoria_id = $request->categoria_id;
-      $item->valor = $valorFormatado;
-      $item->save();
+      $adicional = new Adicional;
+      $adicional->nome = $request->nome;
+      $adicional->categoria_id = $request->categoria_id;
+      $adicional->valor = $valorFormatado;
+      $adicional->save();
 
-      return redirect()->route('cardapio_listar')->with('alert', 'Item criado com sucesso!')
+      return redirect()->route('adicional_listar')->with('alert', 'Adicional criado com sucesso!')
                                                   ->with('alertClass', 'alert-success');
     }
     else
     {
-      return redirect()->back()->with('alert', 'Já existe um item com esse nome!')
+      return redirect()->back()->with('alert', 'Já existe um adicional com esse nome!')
                                                   ->with('alertClass', 'alert-danger');
     }
 
@@ -86,9 +86,9 @@ class CardapioController extends Controller
   public function editar($id)
   {
     $categorias = Categoria::all()->sortBy("nome");
-    $item = Item::find($id);
+    $adicional = Adicional::find($id);
 
-    return view('cardapio_editar')->with(compact('categorias'))->with(compact('item'));
+    return view('adicional_editar')->with(compact('categorias'))->with(compact('adicional'));
   }
 
   /**
@@ -98,26 +98,26 @@ class CardapioController extends Controller
   {
     $nome = $request->nome;
     $categoria_id = $request->categoria_id;
-    $item = Item::where('nome', $nome)->where('categoria_id', $categoria_id)->first();
+    $adicional = Adicional::where('nome', $nome)->where('categoria_id', $categoria_id)->first();
 
-    if( !isset($item) )
+    if( !isset($adicional) )
     {
-      $item = Item::find($id);
+      $adicional = Adicional::find($id);
       $valor = $request->valor;
       $valorFormatado = substr($valor, 3);
       $valorFormatado = str_replace(".", "", $valorFormatado);
       $valorFormatado = str_replace(",", ".", $valorFormatado);
-      $item->nome = $request->nome;
-      $item->categoria_id = $request->categoria_id;
-      $item->valor = $valorFormatado;
-      $item->save();
+      $adicional->nome = $request->nome;
+      $adicional->categoria_id = $request->categoria_id;
+      $adicional->valor = $valorFormatado;
+      $adicional->save();
 
-      return redirect()->route('cardapio_listar')->with('alert', 'Item editado com sucesso!')
+      return redirect()->route('adicional_listar')->with('alert', 'Adicional editado com sucesso!')
                                                   ->with('alertClass', 'alert-success');
     }
     else
     {
-      return redirect()->back()->with('alert', 'Já existe um item com esse nome!')
+      return redirect()->back()->with('alert', 'Já existe um adicional com esse nome!')
                                                   ->with('alertClass', 'alert-danger');
     }
 
@@ -128,10 +128,10 @@ class CardapioController extends Controller
   */
   public function apagar($id)
   {
-    $item = Item::find($id);
-    $item->delete();
+    $adicional = Adicional::find($id);
+    $adicional->delete();
 
-    return redirect()->route('cardapio_listar')->with('alert', 'Item excluido com sucesso!')
+    return redirect()->route('adicional_listar')->with('alert', 'Adicional excluido com sucesso!')
                                                ->with('alertClass', 'alert-success');
   }
 

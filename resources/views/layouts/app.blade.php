@@ -26,7 +26,7 @@
 <body>
   </div>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary ">
+        <nav class="navbar navbar-expand-nunca navbar-dark bg-primary ">
             <div class="container">
 
                 <a class="navbar-brand" href="{{ url('/') }}">

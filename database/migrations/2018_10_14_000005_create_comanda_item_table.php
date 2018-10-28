@@ -15,13 +15,12 @@ class CreateComandaItemTable extends Migration
     {
         Schema::create('comanda_item', function (Blueprint $table) {
           $table->unsignedInteger('comanda_id');
-          $table->unsignedInteger('user_id');
           $table->unsignedInteger('item_id');
+          $table->unsignedInteger('quantidade');
 
-          $table->primary(['comanda_id', 'user_id', 'item_id']);
+          $table->primary(['comanda_id', 'item_id']);
 
           $table->foreign('comanda_id')->references('id')->on('comanda');
-          $table->foreign('user_id')->references('id')->on('users');
           $table->foreign('item_id')->references('id')->on('item');
         });
 

@@ -19,10 +19,10 @@
   <div class="accordion" id="accordionExample">
     @isset($categorias)
     @foreach ($categorias as $c)
-      @if( count($c->itens) > 0)
+      @if( count($c->adicionais) > 0)
 
       <div class="list-group-flush" >
-        <div class="list-group-item list-group-item-action d-flex justify-content-between" type="button" data-toggle="collapse" data-target="#www{{ $c->id }}" aria-expanded="true" aria-controls="collapseOne">
+        <div class="list-group-item list-group-item-action d-flex justify-content-between background-azul" type="button" data-toggle="collapse" data-target="#www{{ $c->id }}" aria-expanded="true" aria-controls="collapseOne">
           <div class="">
             <!-- Ícone -->
             <img class="list-img-icon" src="{{ Storage::url($c->icone) }}" alt="img_categoria">
@@ -35,22 +35,22 @@
       <div id="www{{ $c->id }}" class="collapse @if ($loop->first) show @endif background-lista-itens-cardapio" data-parent="#accordionExample">
         <div class="list-group-flush lista-itens-cardapio">
 
-          @foreach ($c->itens as $i)
+          @foreach ($c->adicionais->sortBy("nome") as $a)
 
             <div class="list-group-item list-group-item-action d-flex justify-content-between">
               <div class="nomeItem">
 
                 <!-- Label Nome -->
-                <span class="mb-1 ">{{ $i->nome }}</span>
+                <span class="mb-1 ">{{ $a->nome }}</span>
               </div>
 
               <div class="mb-auto mt-auto">
 
                 <!-- Botão editar -->
-                <a class="botao-cardapio-editar" href="{{ route('cardapio_editar', ['id' => $i->id]) }}"> <img class="list-img-action" src="{{ asset('img/category/edit.png') }}" alt="img_editar"> </a>
+                <a class="botao-cardapio-editar" href="{{ route('adicional_editar', ['id' => $a->id]) }}"> <img class="list-img-action" src="{{ asset('img/edit.png') }}" alt="img_editar"> </a>
 
                 <!-- Botão excluir -->
-                <button type="button" class="botao-cardapio-excluir" onclick="abrirModal({{$i->id}}, '{{ route('cardapio_apagar', ['id' => $i->id]) }}' )" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/category/garbage.png') }}" alt="img_excluir"></button>
+                <button type="button" class="botao-cardapio-excluir" onclick="abrirModal({{$a->id}}, '{{ route('adicional_apagar', ['id' => $a->id]) }}' )" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/garbage.png') }}" alt="img_excluir"></button>
 
               </div>
 
@@ -66,7 +66,7 @@
     @endisset
   </div>
 
-  @if(count($itens) == 0)
+  @if(count($adicionais) == 0)
   <div class="alert alert-danger" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       Nenhum item foi cadastrado!

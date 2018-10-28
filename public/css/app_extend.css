@@ -30,6 +30,9 @@
   height: 32px;
 }
 
+.background-azul {
+  background-color: #d3e7f8 !important;
+}
 
 /* Barra Secundária*/
 .barra-secundaria {

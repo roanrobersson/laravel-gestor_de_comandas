@@ -9,13 +9,14 @@ class Item extends Model
   protected $table = 'item';
   public $timestamps = false;
 
-  public function user()
+  public function categoria()
   {
-      return $this->belongsTo('App\User');
+    return $this->belongsTo('App\Categoria');
   }
 
-  public function Categoria()
+  public function comandas()
   {
-      return $this->belongsTo('App\Categoria');
+    return $this->belongsToMany('App\Comanda');
   }
+
 }

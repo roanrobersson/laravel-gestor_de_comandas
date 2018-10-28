@@ -21,8 +21,7 @@ class CategoriaController extends Controller
   */
   public function index()
   {
-    $user_id = Auth::id();
-    $categorias = Categoria::where('user_id', '=', $user_id)->get();
+    $categorias = Categoria::all()->sortBy("nome");
 
     return view( 'categoria_listar')->with(compact('categorias'));
   }
@@ -35,17 +34,18 @@ class CategoriaController extends Controller
     return view('categoria_criar');
   }
 
+  /**
+  * Salvar
+  */
   public function salvar(Request $request)
   {
     $nome = $request->nome;
-    $categoria = Categoria::where('nome' , '=', $nome)->first();
+    $categoria = Categoria::where('nome', $nome)->first();
 
     if( !isset($categoria) )
     {
-      $user_id = Auth::id();
       $categoria = new Categoria;
       $categoria->nome = $request->nome;
-      $categoria->user_id =  $user_id;
       $icone = $request->file('arquivo_icone')->store('categoria_icone');
       $categoria->icone = $icone;
       $categoria->save();
@@ -65,8 +65,7 @@ class CategoriaController extends Controller
   */
   public function editar($id)
   {
-    $user_id = Auth::id();
-    $categoria = Categoria::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
+    $categoria = Categoria::find($id);
 
     return view('categoria_editar')->with(compact('categoria'));
   }
@@ -77,12 +76,11 @@ class CategoriaController extends Controller
   public function atualizar(Request $request, $id)
   {
     $nome = $request->nome;
-    $categoria = Categoria::where('nome' , '=', $nome)->first();
+    $categoria = Categoria::where('nome', $nome)->first();
 
     if( !isset($categoria) )
     {
-      $user_id = Auth::id();
-      $categoria = Categoria::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
+      $categoria = Categoria::find($id);
       $categoria->nome = $request->nome;
 
       //Se enviou um novo ícone substitúi o antigo, se não, mantêm o antigo
@@ -108,10 +106,11 @@ class CategoriaController extends Controller
   */
   public function apagar($id)
   {
-    $user_id = Auth::id();
-    $categoria = Categoria::where('id', '=', $id)->where('user_id', '=', $user_id)->first();
+    $categoria = Categoria::find($id);
+    $categoriaItens = count($categoria->itens);
+    $categoriaAdicionais = count($categoria->adicionais);
 
-    if(count($categoria->itens) == 0) {
+    if( ($categoriaItens == 0) AND ($categoriaAdicionais == 0) ) {
       Storage::delete($categoria->icone);
       $categoria->delete();
       return redirect()->route('categoria_listar')->with('alert', 'Categoria excluida com sucesso!')
@@ -119,7 +118,7 @@ class CategoriaController extends Controller
     }
     else
     {
-      return redirect()->route('categoria_listar')->with('alert', 'Essa categoria não pode ser excluída pois está relacionada a itens do cardápio!')
+      return redirect()->route('categoria_listar')->with('alert', 'Essa categoria não pode ser excluída pois está relacionada a itens do cardápio e/ou adicionais!')
                                                   ->with('alertClass', 'alert-danger');
     }
 

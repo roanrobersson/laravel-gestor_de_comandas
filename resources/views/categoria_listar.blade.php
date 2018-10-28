@@ -19,7 +19,7 @@
 
     @forelse ($categorias as $c)
 
-      <div class="list-group-item list-group-item-action d-flex justify-content-between">
+      <div class="list-group-item list-group-item-action d-flex justify-content-between background-azul">
         <div class="">
 
           <!-- Ícone -->
@@ -33,10 +33,10 @@
         <div class="mb-auto mt-auto">
 
           <!-- Botão editar -->
-          <a class="botao-categoria-editar" href="{{ route('categoria_editar', ['id' => $c->id]) }}"> <img class="list-img-action" src="{{ asset('img/category/edit.png') }}" alt="img_editar"> </a>
+          <a class="botao-categoria-editar" href="{{ route('categoria_editar', ['id' => $c->id]) }}"> <img class="list-img-action" src="{{ asset('img/edit.png') }}" alt="img_editar"> </a>
 
           <!-- Botão excluir -->
-          <button type="button" class="botao-categoria-excluir" onclick="abrirModal({{$c->id}}, '{{ route('categoria_apagar', ['id' => $c->id]) }}' )" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/category/garbage.png') }}" alt="img_excluir"></button>
+          <button type="button" class="botao-categoria-excluir" onclick="abrirModal({{$c->id}}, '{{ route('categoria_apagar', ['id' => $c->id]) }}' )" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/garbage.png') }}" alt="img_excluir"></button>
 
         </div>
 

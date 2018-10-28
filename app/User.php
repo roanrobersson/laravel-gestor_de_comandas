@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    protected $table = 'user';
+    protected $table = 'usuario';
     use Notifiable;
 
     /**
@@ -29,8 +29,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function categoria()
+    public function comandas()
     {
-        return $this->hasMany('App\Categoria');
+       return $this->hasMany('App\Comanda');
     }
+
 }
