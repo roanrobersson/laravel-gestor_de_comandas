@@ -138,10 +138,17 @@
 /* Lista Cardapio*/
 .lista-itens-cardapio {
   margin-left: 1rem;
+  display: block;
+  background-color: white;
 }
 
 .background-lista-itens-cardapio {
   background-color: #3490dc;
+}
+
+.lista-itens-cardapio-linha {
+  padding: 1rem;
+  border-bottom: 1px solid #d3e7f8;
 }
 
 .botao-cardapio-editar{

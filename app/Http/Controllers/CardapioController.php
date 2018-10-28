@@ -98,7 +98,7 @@ class CardapioController extends Controller
   {
     $nome = $request->nome;
     $categoria_id = $request->categoria_id;
-    $item = Item::where('nome', $nome)->where('categoria_id', $categoria_id)->first();
+    $item = Item::where('nome', $nome)->where('categoria_id', $categoria_id)->where('id', '<>', $id)->first();
 
     if( !isset($item) )
     {

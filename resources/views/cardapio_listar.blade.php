@@ -13,6 +13,12 @@
           'btnOKText' => 'Excluír']);
   @endmodal
 
+  <script type="text/javascript">
+    jQuery(function($) {
+        $('.valorItem').autoNumeric('init');
+    });
+  </script>
+
 <div class="container p-0">
 
 
@@ -33,33 +39,30 @@
       </div>
 
       <div id="www{{ $c->id }}" class="collapse @if ($loop->first) show @endif background-lista-itens-cardapio" data-parent="#accordionExample">
-        <div class="list-group-flush lista-itens-cardapio">
 
-          @foreach ($c->itens->sortBy("nome") as $i)
+          <div class=" lista-itens-cardapio">
 
-            <div class="list-group-item list-group-item-action d-flex justify-content-between">
-
-              <div class="nomeItem">
-                <!-- Label Nome -->
-                <span class=" ">{{ $i->nome }}</span>
+              @foreach ($c->itens->sortBy("nome") as $i)
+              <div class="container">
+                <div class="row lista-itens-cardapio-linha">
+                  <div class="col-4">
+                    {{ $i->nome }}
+                  </div>
+                  <div class="col-4 text-center">
+                    <span class="valorItem" required data-a-sign="R$ " data-a-dec="," data-a-sep="." data-v-max="999.99" data-v-min="0.01">{{ $i->valor }}</span>
+                  </div>
+                  <div class="col-4 text-right">
+                    <a class="botao-cardapio-editar" href="{{ route('cardapio_editar', ['id' => $i->id]) }}"> <img class="list-img-action" src="{{ asset('img/edit.png') }}" alt="img_editar"> </a>
+                    <button type="button" class="botao-cardapio-excluir" onclick="abrirModal({{$i->id}}, '{{ route('cardapio_apagar', ['id' => $i->id]) }}' )" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/garbage.png') }}" alt="img_excluir"></button>
+                  </div>
+                </div>
               </div>
+              @endforeach
 
-              <div class="mb-auto mt-auto">
+          </div>
 
-                <!-- Botão editar -->
-                <a class="botao-cardapio-editar" href="{{ route('cardapio_editar', ['id' => $i->id]) }}"> <img class="list-img-action" src="{{ asset('img/edit.png') }}" alt="img_editar"> </a>
-
-                <!-- Botão excluir -->
-                <button type="button" class="botao-cardapio-excluir" onclick="abrirModal({{$i->id}}, '{{ route('cardapio_apagar', ['id' => $i->id]) }}' )" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/garbage.png') }}" alt="img_excluir"></button>
-
-              </div>
-
-            </div>
-
-          @endforeach
-
-        </div>
       </div>
+
 
       @endif
     @endforeach

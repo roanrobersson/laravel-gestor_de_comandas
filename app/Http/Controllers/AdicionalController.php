@@ -98,7 +98,7 @@ class AdicionalController extends Controller
   {
     $nome = $request->nome;
     $categoria_id = $request->categoria_id;
-    $adicional = Adicional::where('nome', $nome)->where('categoria_id', $categoria_id)->first();
+    $adicional = Adicional::where('nome', $nome)->where('categoria_id', $categoria_id)->where('id', '<>', $id)->first();
 
     if( !isset($adicional) )
     {
