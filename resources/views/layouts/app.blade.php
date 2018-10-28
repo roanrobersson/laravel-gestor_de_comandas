@@ -29,7 +29,7 @@
         <nav class="navbar navbar-expand-nunca navbar-dark bg-primary ">
             <div class="container">
 
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                   {{ config('app.name', 'Laravel') }}
                 </a>
 
@@ -50,16 +50,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">Logar</a>
                             </li>
-                            <li class="nav-item">
-                                @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">Registrar</a>
-                                @endif
-                            </li>
                         @else
 
                             <li class="nav-item d-flex justify-content-start">
                                 <a class="nav-link" href="{{ route('home') }}">Inicio</a>
                             </li>
+                          @if( Auth::user()->grupo_id == '1')
                             <li class="nav-item d-flex justify-content-start">
                                 <a class="nav-link" href="{{ route('cardapio_listar') }}">Cadastro de cardápio</a>
                             </li>
@@ -70,6 +66,11 @@
                             <li class="nav-item d-flex justify-content-start">
                                 <a class="nav-link" href="{{ route('adicional_listar') }}">Cadastro de adicionais</a>
                             </li>
+
+                            <li class="nav-item d-flex justify-content-start">
+                                <a class="nav-link" href="{{ route('usuario_listar') }}">Cadastro de usuários</a>
+                            </li>
+                          @endif
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex justify-content-start" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

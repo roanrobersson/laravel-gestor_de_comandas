@@ -12,8 +12,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
       $this->call([
-        usersTableSeeder::class,
-        //outras
+          grupoTableSeeder::class,
+          usuarioTableSeeder::class,
+          //Se estiver dando erro ao rodar o db:seed, use o comando "composer dump-autoload"
       ]);
     }
 }

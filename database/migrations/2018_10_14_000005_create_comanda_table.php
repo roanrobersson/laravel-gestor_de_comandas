@@ -20,7 +20,7 @@ class CreateComandaTable extends Migration
           $table->boolean('paga');
           $table->decimal('desconto', 10, 2);
 
-          $table->foreign('user_id')->references('id')->on('user');
+          $table->foreign('usuario_id')->references('id')->on('usuario');
         });
 
     }

@@ -17,12 +17,14 @@ class usuarioTableSeeder extends Seeder
         'name' => 'Roan de Oliveira',
         'email' => 'roanrobersson@gmail.com',
         'password' => bcrypt('cavalote'),
+        'grupo_id' => '1'
       ]);
 
       DB::table('usuario')->insert([
         'name' => 'Suelen Moreira',
         'email' => 'susuzinha@gmail.com',
         'password' => bcrypt('cavalote'),
+        'grupo_id' => '2'
       ]);
     }
 }

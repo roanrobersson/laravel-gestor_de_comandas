@@ -34,4 +34,16 @@ class User extends Authenticatable
        return $this->hasMany('App\Comanda');
     }
 
+    public function grupo()
+    {
+       return $this->belongsTo('App\Grupo');
+    }
+
+    public function isAdmin()
+    {
+      if ($this->grupo_id == 1)
+      {
+        return true;
+      }
+    }
 }
