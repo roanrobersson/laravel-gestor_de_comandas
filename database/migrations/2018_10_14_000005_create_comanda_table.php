@@ -17,8 +17,8 @@ class CreateComandaTable extends Migration
           $table->increments('id');
           $table->unsignedInteger('usuario_id');
           $table->string('nomeCliente', 45);
-          $table->boolean('paga');
-          $table->decimal('desconto', 10, 2);
+          $table->boolean('paga')->nullable();
+          $table->decimal('desconto', 10, 2)->nullable();
 
           $table->foreign('usuario_id')->references('id')->on('usuario');
         });

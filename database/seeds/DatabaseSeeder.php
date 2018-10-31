@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
       $this->call([
           grupoTableSeeder::class,
           usuarioTableSeeder::class,
+          categoriaTableSeeder::class,
+          adicionalTableSeeder::class,
+          itemTableSeeder::class,
           //Se estiver dando erro ao rodar o db:seed, use o comando "composer dump-autoload"
       ]);
     }

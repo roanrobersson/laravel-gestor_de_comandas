@@ -8,8 +8,13 @@
   background-image: url('../svg/app-background.svg');
 } */
 
+body {
+  background-color: #d3e7f8 !important;
+}
 
-
+main {
+  background-color: #d3e7f8 !important;
+}
 
 .py-4{
   /*margin-top: 35px; */
@@ -17,6 +22,17 @@
 
 .nav-title{
   font-size: 1rem;
+}
+
+.nav-link {
+  color: white !important;
+}
+.nav-link:hover {
+  font-size: 20px;
+}
+
+.navbar-toggler {
+  border-color: white !important;
 }
 
 .list-img-icon {
@@ -31,8 +47,18 @@
 }
 
 .background-azul {
-  background-color: #d3e7f8 !important;
+  background-color: white !important;
 }
+
+.pesquisaInput {
+  display: inline-block;
+  height: 3rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+
 
 /* Barra Secundária*/
 .barra-secundaria {
@@ -181,3 +207,5 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+/* Lista Comandas */

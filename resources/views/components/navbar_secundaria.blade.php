@@ -1,5 +1,5 @@
 <!-- navbar_secundaria  -->
-<nav class="barra-secundaria">
+<nav class="barra-secundaria mb-4">
   <div class="container container-barra_secundaria">
     <div class="subcontainer-barra_secundaria">
       <p class="barra-titulo">{{ $title }}</p>
