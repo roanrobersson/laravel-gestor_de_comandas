@@ -13,4 +13,6 @@ class Adicional extends Model
   {
       return $this->belongsTo('App\Categoria');
   }
+
+
 }

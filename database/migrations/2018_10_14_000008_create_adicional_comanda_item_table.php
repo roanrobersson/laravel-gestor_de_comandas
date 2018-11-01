@@ -14,15 +14,12 @@ class CreateAdicionalComandaItemTable extends Migration
     public function up()
     {
         Schema::create('adicional_comanda_item', function (Blueprint $table) {
+          $table->increments('id');
           $table->unsignedInteger('adicional_id');
-          $table->unsignedInteger('comanda_item-comanda_id');
-          $table->unsignedInteger('comanda_item-item_id');
-
-          $table->primary(['adicional_id', 'comanda_item-comanda_id', 'comanda_item-item_id'], 'chavePrimaria');
+          $table->unsignedInteger('comanda_item_id');
 
           $table->foreign('adicional_id')->references('id')->on('adicional');
-          $table->foreign('comanda_item-comanda_id')->references('comanda_id')->on('comanda_item');
-          $table->foreign('comanda_item-item_id')->references('item_id')->on('comanda_item');
+          $table->foreign('comanda_item_id')->references('id')->on('comanda_item');
         });
 
     }

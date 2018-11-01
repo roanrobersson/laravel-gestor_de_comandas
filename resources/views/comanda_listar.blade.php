@@ -35,7 +35,7 @@
 
 <div class="container p-0">
 
-  <input class="pesquisaInput" id="pesquisaInput" type="text" placeholder="Pesquisar cliente..">
+  <input class="pesquisaInput" id="pesquisaInput" type="text" placeholder="Pesquisar comanda..">
 
   <div class="list-group-flush lista-categorias" id="lista">
 
@@ -52,10 +52,10 @@
         <div class="mb-auto mt-auto">
 
           <!-- Botão editar -->
-          <a class="botao-categoria-editar" href="{{ route('categoria_editar', ['id' => $c->id]) }}"> <img class="list-img-action" src="{{ asset('img/edit.png') }}" alt="img_editar"> </a>
+          <a class="botao-categoria-editar" href="{{ route('comanda_ver', ['id' => $c->id]) }}"> <img class="list-img-action" src="{{ asset('img/list.png') }}" alt="img_editar"> </a>
 
           <!-- Botão excluir -->
-          <button type="button" class="botao-categoria-excluir" onclick="abrirModal({{$c->id}}, '{{ route('categoria_apagar', ['id' => $c->id]) }}' )" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/garbage.png') }}" alt="img_excluir"></button>
+          <button type="button" class="botao-categoria-excluir" onclick="abrirModal({{$c->id}}, '{{ route('comanda_apagar', ['id' => $c->id]) }}' )" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/garbage.png') }}" alt="img_excluir"></button>
 
         </div>
 

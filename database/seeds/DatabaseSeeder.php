@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
           categoriaTableSeeder::class,
           adicionalTableSeeder::class,
           itemTableSeeder::class,
+          comandaTableSeeder::class,
           //Se estiver dando erro ao rodar o db:seed, use o comando "composer dump-autoload"
       ]);
     }

@@ -20,7 +20,7 @@
 
     <div class="form-group" >
       <label for="nomeItem">Nome:</label>
-      <input type="text" name="nome" class="form-control" id="nomeItem" value={{ $item->nome }} placeholder="Nome" maxlength="30" required >
+      <input type="text" name="nome" class="form-control" id="nomeItem" value="{{ $item->nome }}" placeholder="Nome" maxlength="30" required >
     </div>
 
     <div class="form-group">

@@ -15,7 +15,7 @@
 
             <div class="form-group" >
               <label for="nomeCategoria">Nome:</label>
-              <input type="input" name="nome" class="form-control" id="nomeCategoria" placeholder="Nome" value={{ $categoria->nome}} maxlength="15" required>
+              <input type="input" name="nome" class="form-control" id="nomeCategoria" placeholder="Nome" value="{{ $categoria->nome}}" maxlength="15" required>
             </div>
 
             <div class="form-group">

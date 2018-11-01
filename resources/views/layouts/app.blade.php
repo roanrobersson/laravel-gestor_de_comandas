@@ -15,10 +15,11 @@
     <script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{ asset('js/autoNumeric.js')}}"></script>
 
-    <!-- Fonts -->
+    <!-- Fonts
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
+    -->
+    
     <!-- Styles -->
     <link href="{{ asset('css/app_extend.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

@@ -209,3 +209,10 @@ main {
 }
 
 /* Lista Comandas */
+
+/* Comanda Ver */
+.card-comanda-titulo{
+  background-color: #3490dc !important;
+  color: white;
+  font-size: 2rem;
+}

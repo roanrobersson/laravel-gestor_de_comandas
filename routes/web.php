@@ -19,15 +19,18 @@ Auth::routes();
 Route::redirect('/home', '/comanda')->name('home');
 Route::redirect('/', '/comanda');
 
-Route::middleware(['admin'])->group(function () {
-  
+
+
   // Comanda
   Route::get('/comanda', 'ComandaController@index')->name('comanda_listar');
+  Route::get('/comanda/{id}', 'ComandaController@ver')->name('comanda_ver');
   Route::get('/comanda/criar', 'ComandaController@criar')->name('comanda_criar');
   Route::post('/comanda', 'ComandaController@salvar')->name('comanda_salvar');
   Route::get('/comanda/{id}/editar', 'ComandaController@editar')->name('comanda_editar');
   Route::put('/comanda/{id}', 'ComandaController@atualizar')->name('comanda_atualizar');
   Route::delete('/comanda/{id}', 'ComandaController@apagar')->name('comanda_apagar');
+
+Route::middleware(['admin'])->group(function () {
 
   // Categoria
   Route::get('/categoria', 'CategoriaController@index')->name('categoria_listar');
