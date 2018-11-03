@@ -15,49 +15,43 @@ class itemTableSeeder extends Seeder
 
       // Cachorro-quente
       DB::table('item')->insert([
-        'nome' => 'Tudo',
+        'nome' => 'Cachorro-quente Tudo',
         'categoria_Id' => '1',
         'valor' => '15.00'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Calabresa',
+        'nome' => 'Cachorro-quente Calabresa',
         'categoria_Id' => '1',
         'valor' => '8.00'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Bacon',
+        'nome' => 'Cachorro-quente Bacon',
         'categoria_Id' => '1',
         'valor' => '7'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Duplo',
+        'nome' => 'Cachorro-quente Duplo',
         'categoria_Id' => '1',
         'valor' => '4.50'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Pizza',
+        'nome' => 'Cachorro-quente Pizza',
         'categoria_Id' => '1',
         'valor' => '5'
       ]);
 
       DB::table('item')->insert([
-        'nome' => '4 Queijos',
-        'categoria_Id' => '1',
-        'valor' => '6'
-      ]);
-
-      DB::table('item')->insert([
-        'nome' => 'Tradicional',
+        'nome' => 'Cachorro-quente Tradicional',
         'categoria_Id' => '1',
         'valor' => '3.50'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Frango',
+        'nome' => 'Cachorro-quente Frango',
         'categoria_Id' => '1',
         'valor' => '5.50'
       ]);
@@ -66,37 +60,37 @@ class itemTableSeeder extends Seeder
 
       // Batata frita
       DB::table('item')->insert([
-        'nome' => 'Rústica',
+        'nome' => 'Batata frita Rústica',
         'categoria_Id' => '2',
         'valor' => '8'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Palito',
+        'nome' => 'Batata frita Palito',
         'categoria_Id' => '2',
         'valor' => '10'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Smile',
+        'nome' => 'Batata frita Smile',
         'categoria_Id' => '2',
         'valor' => '11'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Chips',
+        'nome' => 'Batata frita Chips',
         'categoria_Id' => '2',
         'valor' => '15'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Torre c/ cheddar e bacon',
+        'nome' => 'Torre de batata frita c/ cheddar e bacon',
         'categoria_Id' => '2',
         'valor' => '30'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Torre 4 queijos',
+        'nome' => 'Torre de batata frita 4 queijos',
         'categoria_Id' => '2',
         'valor' => '30'
       ]);
@@ -105,124 +99,124 @@ class itemTableSeeder extends Seeder
 
       // Suco
       DB::table('item')->insert([
-        'nome' => 'Morango',
+        'nome' => 'Suco de Morango',
         'categoria_Id' => '3',
         'valor' => '3'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Laranja',
+        'nome' => 'Suco de Laranja',
         'categoria_Id' => '3',
         'valor' => '2.50'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Limão',
+        'nome' => 'Suco de Limão',
         'categoria_Id' => '3',
         'valor' => '2.50'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Abacaxi',
+        'nome' => 'Suco de Abacaxi',
         'categoria_Id' => '3',
         'valor' => '3'
       ]);
 
 
 
-      // Sanduiche
+      // Sanduíche
       DB::table('item')->insert([
-        'nome' => 'Quatro queijos',
+        'nome' => 'Sanduíche de Quatro queijos',
         'categoria_Id' => '4',
         'valor' => '5'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Calabresa',
+        'nome' => 'Sanduíche de Calabresa',
         'categoria_Id' => '4',
         'valor' => '6'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Churrasco',
+        'nome' => 'Sanduíche de Churrasco',
         'categoria_Id' => '4',
         'valor' => '7'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Presunto',
+        'nome' => 'Sanduíche de Presunto',
         'categoria_Id' => '4',
         'valor' => '5'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Bacon',
+        'nome' => 'Sanduíche de Bacon',
         'categoria_Id' => '4',
         'valor' => '6'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Atum',
+        'nome' => 'Sanduíche de Atum',
         'categoria_Id' => '4',
         'valor' => '4'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Frango Pizzaiolo',
+        'nome' => 'Sanduíche de Frango Pizzaiolo',
         'categoria_Id' => '4',
         'valor' => '7'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Italiano',
+        'nome' => 'Sanduíche Italiano',
         'categoria_Id' => '4',
         'valor' => '7'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Almôndegas',
+        'nome' => 'Sanduíche de Almôndegas',
         'categoria_Id' => '4',
         'valor' => '6'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Frango',
+        'nome' => 'Sanduíche de Frango',
         'categoria_Id' => '4',
         'valor' => '4'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Carne e queijo',
+        'nome' => 'Sanduíche de Carne e queijo',
         'categoria_Id' => '4',
         'valor' => '3'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Rosbife',
+        'nome' => 'Sanduíche de Rosbife',
         'categoria_Id' => '4',
         'valor' => '8'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Frango defumado',
+        'nome' => 'Sanduíche de Frango defumado',
         'categoria_Id' => '4',
         'valor' => '7'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Vegetariano',
+        'nome' => 'Sanduíche Vegetariano',
         'categoria_Id' => '4',
         'valor' => '2.00'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Coração de frango',
+        'nome' => 'Sanduíche de Coração de frango',
         'categoria_Id' => '4',
         'valor' => '8'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Peru',
+        'nome' => 'Sanduíche de Peru',
         'categoria_Id' => '4',
         'valor' => '8'
       ]);
@@ -232,97 +226,97 @@ class itemTableSeeder extends Seeder
 
       // Refrigerante
       DB::table('item')->insert([
-        'nome' => 'Cola lata',
+        'nome' => 'Refrigerante Cola lata',
         'categoria_Id' => '5',
         'valor' => '5'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Cola 2L',
+        'nome' => 'Refrigerante Cola 2L',
         'categoria_Id' => '5',
         'valor' => '10'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Cola 1.5L',
+        'nome' => 'Refrigerante Cola 1.5L',
         'categoria_Id' => '5',
         'valor' => '7'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Cola 600ml',
+        'nome' => 'Refrigerante Cola 600ml',
         'categoria_Id' => '5',
         'valor' => '6'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Limão lata',
+        'nome' => 'Refrigerante Limão lata',
         'categoria_Id' => '5',
         'valor' => '4'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Limão 2L',
+        'nome' => 'Refrigerante Limão 2L',
         'categoria_Id' => '5',
         'valor' => '9'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Limão 1.5L',
+        'nome' => 'Refrigerante Limão 1.5L',
         'categoria_Id' => '5',
         'valor' => '6'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Limão 600ml',
+        'nome' => 'Refrigerante Limão 600ml',
         'categoria_Id' => '5',
         'valor' => '5'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Laranja lata',
+        'nome' => 'Refrigerante Laranja lata',
         'categoria_Id' => '5',
         'valor' => '5.5'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Laranja 2L',
+        'nome' => 'Refrigerante Laranja 2L',
         'categoria_Id' => '5',
         'valor' => '10'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Laranja 1.5L',
+        'nome' => 'Refrigerante Laranja 1.5L',
         'categoria_Id' => '5',
         'valor' => '7'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Laranja 600ml',
+        'nome' => 'Refrigerante Laranja 600ml',
         'categoria_Id' => '5',
         'valor' => '6'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Uva lata',
+        'nome' => 'Refrigerante Uva lata',
         'categoria_Id' => '5',
         'valor' => '3'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Uva 2L',
+        'nome' => 'Refrigerante Uva 2L',
         'categoria_Id' => '5',
         'valor' => '8'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Uva 1.5L',
+        'nome' => 'Refrigerante Uva 1.5L',
         'categoria_Id' => '5',
         'valor' => '6'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Uva 600ml',
+        'nome' => 'Refrigerante Uva 600ml',
         'categoria_Id' => '5',
         'valor' => '5'
       ]);
@@ -330,55 +324,55 @@ class itemTableSeeder extends Seeder
 
       // X
       DB::table('item')->insert([
-        'nome' => 'Vegetariano',
+        'nome' => 'X Vegetariano',
         'categoria_Id' => '6',
         'valor' => '10'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Quatro queijos',
+        'nome' => 'X Quatro queijos',
         'categoria_Id' => '6',
         'valor' => '12'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Tudo',
+        'nome' => 'X Tudo',
         'categoria_Id' => '6',
         'valor' => '25'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'A moda da casa',
+        'nome' => 'X A moda da casa',
         'categoria_Id' => '6',
         'valor' => '19'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Bacon',
+        'nome' => 'X Bacon',
         'categoria_Id' => '6',
         'valor' => '13'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Calabresa',
+        'nome' => 'X Calabresa',
         'categoria_Id' => '6',
         'valor' => '13'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Filé',
+        'nome' => 'X Filé',
         'categoria_Id' => '6',
         'valor' => '14'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Frango',
+        'nome' => 'X Frango',
         'categoria_Id' => '6',
         'valor' => '7'
       ]);
 
       DB::table('item')->insert([
-        'nome' => 'Palmito',
+        'nome' => 'X Palmito',
         'categoria_Id' => '6',
         'valor' => '5'
       ]);

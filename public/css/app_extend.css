@@ -33,6 +33,7 @@ main {
 
 .navbar-toggler {
   border-color: white !important;
+  border: 2px solid white !important;
 }
 
 .list-img-icon {
@@ -214,5 +215,33 @@ main {
 .card-comanda-titulo{
   background-color: #3490dc !important;
   color: white;
+  margin-bottom: 0.5rem;
+}
+
+.card-comanda-titulo-row-valorTotal {
+  padding: 1rem;
+  border-bottom: 1px solid #d3e7f8;
+}
+
+.card-comanda-titulo-row-nomeCliente {
   font-size: 2rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.comanda-ValorTotal {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  color: white;
+  background-color: #3490dc !important;
+}
+
+
+
+/*- Comanda itens lista*/
+.lista-itens-comanda-linha {
+  background-color: white;
+  padding: 1rem;
+  border-bottom: 1px solid #d3e7f8;
 }

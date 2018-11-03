@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class comandaTableSeeder extends Seeder
 {
@@ -11,48 +12,21 @@ class comandaTableSeeder extends Seeder
      */
     public function run()
     {
+      $faker = Faker::create();
       DB::table('comanda')->delete();
 
-      DB::table('comanda')->insert([
-        'id' => '1',
-        'usuario_id' => '1',
-        'nomeCliente' => 'Fernando de Oliveira',
-      ]);
+      for ($i=1; $i <= 5; $i++) {
+        for ($j=1; $j < rand(10, 35); $j++) {
+          DB::table('comanda')->insert([
+            'usuario_id' => $i,
+            'nomeCliente' => $faker->name,
+          ]);
+        }
+      }
 
       DB::table('comanda')->insert([
-        'id' => '2',
         'usuario_id' => '1',
-        'nomeCliente' => 'Maicon Cazzonato',
-      ]);
-
-      DB::table('comanda')->insert([
-        'id' => '3',
-        'usuario_id' => '1',
-        'nomeCliente' => 'Roberto de Souza',
-      ]);
-
-      DB::table('comanda')->insert([
-        'id' => '4',
-        'usuario_id' => '1',
-        'nomeCliente' => 'Mariele Lebedieff',
-      ]);
-
-      DB::table('comanda')->insert([
-        'id' => '5',
-        'usuario_id' => '1',
-        'nomeCliente' => 'Bruna Rigo',
-      ]);
-
-      DB::table('comanda')->insert([
-        'id' => '6',
-        'usuario_id' => '1',
-        'nomeCliente' => 'Íria Tirapele',
-      ]);
-
-      DB::table('comanda')->insert([
-        'id' => '7',
-        'usuario_id' => '1',
-        'nomeCliente' => 'Pedro Antônio Pegoraro',
+        'nomeCliente' => 'Roan Robersson de Oliveira',
       ]);
 
     }

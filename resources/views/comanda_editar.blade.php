@@ -15,7 +15,7 @@
 
             <div class="form-group" >
               <label for="nomeCategoria">Nome do cliente:</label>
-              <input type="input" name="nomeCliente" class="form-control" id="nomeCategoria" placeholder="Nome" value="{{ $comanda->nomeCliente}}" maxlength="500" required>
+              <input type="input" name="nomeCliente" class="form-control" id="nomeCategoria" placeholder="Nome" value="{{ $comanda->nomeCliente}}" maxlength="45" required>
             </div>
 
             <button type="submit" class="btn btn-primary botao-submit" >Salvar</button>

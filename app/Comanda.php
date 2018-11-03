@@ -16,6 +16,6 @@ class Comanda extends Model
 
     public function itens()
     {
-      return $this->belongsToMany('App\Item');
+      return $this->belongsToMany('App\Item')->withPivot('id');
     }
 }

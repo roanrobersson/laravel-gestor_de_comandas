@@ -15,7 +15,7 @@ class CreateItemTable extends Migration
     {
         Schema::create('item', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 30);
+            $table->string('nome', 45);
             $table->unsignedInteger('categoria_id');
             $table->decimal('valor', 10, 2);
 

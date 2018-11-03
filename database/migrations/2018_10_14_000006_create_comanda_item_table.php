@@ -17,7 +17,7 @@ class CreateComandaItemTable extends Migration
           $table->increments('id');
           $table->unsignedInteger('comanda_id');
           $table->unsignedInteger('item_id');
-          $table->unsignedInteger('quantidade');
+          $table->text('observacao')->nullable();
 
           $table->foreign('comanda_id')->references('id')->on('comanda');
           $table->foreign('item_id')->references('id')->on('item');

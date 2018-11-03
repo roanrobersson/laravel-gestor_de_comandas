@@ -19,7 +19,7 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     -->
-    
+
     <!-- Styles -->
     <link href="{{ asset('css/app_extend.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -91,7 +91,7 @@
                                 </div>
                             </li>
                         @endguest
-                        <hr class="m-0 p-0">
+                        <hr class="m-0 p-0 mt-4" style="border-top: 1px solid white;">
                     </ul>
                 </div>
             </div>

@@ -22,6 +22,9 @@ class CreateAdicionalComandaItemTable extends Migration
           $table->foreign('comanda_item_id')->references('id')->on('comanda_item');
         });
 
+          //Chama o comando db:seed
+         Artisan::call('db:seed');
+
     }
 
     /**

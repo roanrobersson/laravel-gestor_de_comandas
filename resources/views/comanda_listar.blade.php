@@ -52,8 +52,9 @@
         <div class="mb-auto mt-auto">
 
           <!-- Botão editar -->
-          <a class="botao-categoria-editar" href="{{ route('comanda_ver', ['id' => $c->id]) }}"> <img class="list-img-action" src="{{ asset('img/list.png') }}" alt="img_editar"> </a>
-
+          <a class="botao-categoria-editar" href="{{ route('comanda_ver', ['idItem' => $c->id]) }}"> <img class="list-img-action" src="{{ asset('img/list.png') }}" alt="img_editar"> </a>
+          <!-- Botão editar -->
+          <a class="botao-categoria-excluir" href="{{ route('comanda_editar', ['id' => $c->id]) }}"> <img class="list-img-action" src="{{ asset('img/edit.png') }}" alt="img_editar"> </a>
           <!-- Botão excluir -->
           <button type="button" class="botao-categoria-excluir" onclick="abrirModal({{$c->id}}, '{{ route('comanda_apagar', ['id' => $c->id]) }}' )" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/garbage.png') }}" alt="img_excluir"></button>
 

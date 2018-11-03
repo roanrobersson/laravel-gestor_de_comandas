@@ -33,6 +33,7 @@ class ComandaController extends Controller
     public function ver($id)
     {
       $comanda = Comanda::find($id);
+
       return view('comanda_ver')->with(compact('comanda'));
     }
 
@@ -91,4 +92,44 @@ class ComandaController extends Controller
       return redirect()->route('comanda_listar')->with('alert', 'Comanda excluída com sucesso!')
                                                   ->with('alertClass', 'alert-success');
     }
+
+    /**
+    * apagarItem
+    */
+    public function apagarItem($id, $pivotId)
+    {
+      $comanda = Comanda::find($id);
+      $comanda->itens()->wherePivot('id', $pivotId)->detach();
+
+      return redirect()->back()->with('alert', 'Item excluído com sucesso!')
+                                                  ->with('alertClass', 'alert-success');
+    }
+
+    /**
+    * pagar
+    */
+    public function pagar($id)
+    {
+      $comanda = Comanda::find($id);
+      
+      return view('comanda_pagar')->with(compact('comanda'));
+    }
+
+    /**
+    * novoPedido
+    */
+    public function novoPedido()
+    {
+
+    }
+
+    /**
+    * salvarPedido
+    */
+    public function salvarPedido()
+    {
+
+    }
+
+
 }
