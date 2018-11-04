@@ -21,7 +21,7 @@ class ComandaController extends Controller
     */
     public function index()
     {
-      $comandas = Comanda::where('usuario_id', Auth::user()->id)->get()->sortBy("nomeCliente");
+      $comandas = Comanda::where('usuario_id', Auth::user()->id)->where('paga', null)->get()->sortBy("nomeCliente");
 
       return view( 'comanda_listar')->with(compact('comandas'));
     }
@@ -111,7 +111,7 @@ class ComandaController extends Controller
     public function pagar($id)
     {
       $comanda = Comanda::find($id);
-      
+
       return view('comanda_pagar')->with(compact('comanda'));
     }
 
@@ -130,6 +130,30 @@ class ComandaController extends Controller
     {
 
     }
+
+
+    /**
+    * atualizarPagamento
+    */
+    public function atualizarPagamento(Request $request, $id)
+    {
+      $comanda = Comanda::find($id);
+
+      $valorDesconto = $request->valorDesconto;
+      $valorDescontoFormatado = substr($valorDesconto, 3);
+      $valorDescontoFormatado = str_replace(".", "", $valorDescontoFormatado);
+      $valorDescontoFormatado = str_replace(",", ".", $valorDescontoFormatado);
+
+      if ($valorDescontoFormatado > 0.00) {
+        $comanda->desconto = $valorDescontoFormatado;
+      }
+
+      $comanda->paga = true;
+      $comanda->save();
+      return redirect()->route('comanda_listar')->with('alert', 'Comanda finalizada com sucesso!')
+                                                  ->with('alertClass', 'alert-success');
+    }
+
 
 
 }

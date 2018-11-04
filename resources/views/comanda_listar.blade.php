@@ -35,7 +35,7 @@
 
 <div class="container p-0">
 
-  <input class="pesquisaInput" id="pesquisaInput" type="text" placeholder="Pesquisar comanda..">
+  <input class="pesquisaInput rounded" id="pesquisaInput" type="text" placeholder="Pesquisar comanda..">
 
   <div class="list-group-flush lista-categorias" id="lista">
 

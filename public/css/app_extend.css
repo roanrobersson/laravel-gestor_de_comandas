@@ -57,6 +57,7 @@ main {
   margin-bottom: 1.5rem;
   width: 100%;
   text-align: center;
+  border: none;
 }
 
 
@@ -237,7 +238,12 @@ main {
   background-color: #3490dc !important;
 }
 
-
+.comanda-Fechar-Item{
+  margin-top: 0.5rem;
+  padding: 1rem;
+  color: black;
+  background-color: white !important;
+}
 
 /*- Comanda itens lista*/
 .lista-itens-comanda-linha {

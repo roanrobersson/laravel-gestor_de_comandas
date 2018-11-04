@@ -28,6 +28,7 @@ Route::redirect('/', '/comanda');
   Route::post('/comanda', 'ComandaController@salvar')->name('comanda_salvar');
   Route::get('/comanda/{id}/editar', 'ComandaController@editar')->name('comanda_editar');
   Route::put('/comanda/{id}', 'ComandaController@atualizar')->name('comanda_atualizar');
+  Route::put('/comanda/{id}/pagamento', 'ComandaController@atualizarPagamento')->name('comanda_atualizar_pagamento');
   Route::delete('/comanda/{id}', 'ComandaController@apagar')->name('comanda_apagar');
   Route::delete('/comanda/{id}/{pivotId}', 'ComandaController@apagarItem')->name('comanda_apagar_item');
   Route::get('/comanda/{id}/pagar', 'ComandaController@pagar')->name('comanda_pagar');
