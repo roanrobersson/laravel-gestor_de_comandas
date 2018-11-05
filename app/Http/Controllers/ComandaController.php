@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Comanda;
+use App\Adicional;
+use App\Item;
+use App\Categoria;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 
 class ComandaController extends Controller
@@ -33,8 +37,9 @@ class ComandaController extends Controller
     public function ver($id)
     {
       $comanda = Comanda::find($id);
+      $categoria = Categoria::all();
 
-      return view('comanda_ver')->with(compact('comanda'));
+      return view('comanda_ver')->with(compact('comanda'))->with(compact('categoria'));
     }
 
 
@@ -54,7 +59,7 @@ class ComandaController extends Controller
       $comanda = new Comanda;
       $comanda->nomeCliente = $request->nomeCliente;
       $comanda->usuario_id = Auth::user()->id;
-      $comanda->paga = false;
+      $comanda->paga = null;
       $comanda->save();
       return redirect()->route('comanda_listar')->with('alert', 'Comanda criada com sucesso!')
                                                 ->with('alertClass', 'alert-success');
@@ -118,16 +123,48 @@ class ComandaController extends Controller
     /**
     * novoPedido
     */
-    public function novoPedido()
+    public function novoPedido(Request $request, $id)
     {
+      $categoria_id = $request->categoria_id;
+      $comanda = Comanda::find($id);
+      $itens = Item::all()->where('categoria_id', $categoria_id);
+      $adicional = Adicional::all()->where('categoria_id', $categoria_id);
 
+      return view('comanda_novoPedido')->with(compact('comanda'))->with(compact('itens'))->with(compact('adicional'));
     }
 
     /**
     * salvarPedido
     */
-    public function salvarPedido()
+    public function salvarPedido(Request $request, $id)
     {
+      $quantidade = $request->quantidade;
+      $item_id = $request->item_id;
+      $adicional_id = $request->adicional_id;
+      $observacao = $request->observacao;
+      $comanda = Comanda::find($id);
+
+      for ($i=0; $i < $quantidade ; $i++) {
+        if($observacao == null){
+          $comanda_item_id = DB::table('comanda_item')->insertGetId(
+              ['comanda_id' => $id, 'item_id' => $item_id]
+          );
+        }else{
+          $comanda_item_id = DB::table('comanda_item')->insertGetId(
+              ['comanda_id' => $id, 'item_id' => $item_id, 'observacao' => $observacao]
+          );
+        }
+
+        if($adicional_id <> 0) {
+          DB::table('adicional_comanda_item')->insert(
+              ['adicional_id' => $adicional_id, 'comanda_item_id' => $comanda_item_id]
+          );
+        }
+
+      }
+
+      return redirect()->route('comanda_ver', ['id' => $id])->with('alert', 'Comanda finalizada com sucesso!')
+                                                  ->with('alertClass', 'alert-success');
 
     }
 

@@ -213,6 +213,14 @@ main {
 /* Lista Comandas */
 
 /* Comanda Ver */
+.dropdown-item {
+    height: 10vh !important;
+    width: 50vw !important;
+    max-width: 300px !important;
+    padding-top: 2rem !important;
+}
+
+
 .card-comanda-titulo{
   background-color: #3490dc !important;
   color: white;
@@ -239,11 +247,13 @@ main {
 }
 
 .comanda-Fechar-Item{
-  margin-top: 0.5rem;
   padding: 1rem;
   color: black;
   background-color: white !important;
+  border-bottom: 1px solid #d3e7f8;
 }
+
+
 
 /*- Comanda itens lista*/
 .lista-itens-comanda-linha {

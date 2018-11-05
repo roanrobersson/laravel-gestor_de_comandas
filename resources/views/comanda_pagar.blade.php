@@ -6,11 +6,6 @@
                              'title' => 'Fechar comanda']);
   @endnavbar_secundaria
 
-  @modal([  'modalId' => 'modalExcluir',
-          'modalText' => 'Você realmente deseja excluír esse item?',
-    'btnCancelarText' => 'Cancelar',
-          'btnOKText' => 'Excluír']);
-  @endmodal
 
   <script type="text/javascript">
     jQuery(function($) {
@@ -36,7 +31,7 @@
       @method('PUT')
       @csrf
 
-      <div class="row comanda-Fechar-Item rounded">
+      <div class="row comanda-Fechar-Item">
         <div class="col-9">
           Total de pedidos:
         </div>
@@ -44,7 +39,7 @@
           <span>{{ $comanda->itens->count()}}</span>
         </div>
       </div>
-      <div class="row comanda-Fechar-Item rounded">
+      <div class="row comanda-Fechar-Item">
         <div class="col-9">
           Valor total:
         </div>
@@ -52,7 +47,7 @@
           <span class="valorItem" required data-a-sign="R$ " data-a-dec="," data-a-sep="." data-v-max="999.99" data-v-min="0.01">{{ $comanda->itens->sum('valor') }}</span>
         </div>
       </div>
-      <div class="row comanda-Fechar-Item rounded">
+      <div class="row comanda-Fechar-Item">
         <div class="col-9 mt-2">
           Desconto:
         </div>

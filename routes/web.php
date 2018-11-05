@@ -32,8 +32,8 @@ Route::redirect('/', '/comanda');
   Route::delete('/comanda/{id}', 'ComandaController@apagar')->name('comanda_apagar');
   Route::delete('/comanda/{id}/{pivotId}', 'ComandaController@apagarItem')->name('comanda_apagar_item');
   Route::get('/comanda/{id}/pagar', 'ComandaController@pagar')->name('comanda_pagar');
-  Route::get('/comanda/novoPedido', 'ComandaController@novoPedido')->name('comanda_novoPedido');
-  Route::post('/comanda/pedido', 'ComandaController@salvarPedido')->name('comanda_salvarPedido');
+  Route::get('/comanda/{id}/novoPedido', 'ComandaController@novoPedido')->name('comanda_novoPedido');
+  Route::post('/comanda/{id}/pedido', 'ComandaController@salvarPedido')->name('comanda_salvarPedido');
 
 
 Route::middleware(['admin'])->group(function () {

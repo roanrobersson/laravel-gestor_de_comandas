@@ -28,7 +28,7 @@ class categoriaTableSeeder extends Seeder
 
       DB::table('categoria')->insert([
         'id' => '3',
-        'nome' => 'Sucos',
+        'nome' => 'Suco',
         'icone' => 'categoria_icone/suco.png'
       ]);
 

@@ -36,11 +36,33 @@
       </div>
       <div class="col-5 text-left" style="transform: translateY(10%)">
         Valor total:
-        <span class="valorItem" required data-a-sign="R$ " data-a-dec="," data-a-sep="." data-v-max="999.99" data-v-min="0.01">{{ $comanda->itens->sum('valor') }}</span>
+        <span>
+          {{ $comanda->itens->sum('valor') }}
+        </span>
       </div>
       <div class="col-4 text-right">
         <!-- Botão novo pedido-->
-        <a class="botao-categoria-editar" href="{{ route('comanda_novoPedido') }}"> <img class="list-img-action" src="{{ asset('img/add_white.png') }}" alt="img_editar"> </a>
+
+        <div class="dropdown d-inline dropleft">
+          <button class=" botao-categoria-editar" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img class="list-img-action" src="{{ asset('img/add_white.png') }}" alt="img_editar">
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="text-center font-weight-bold" style="color: #3490dc">
+              <span>Selecione uma categoria</span>
+            </div>
+            @foreach($categoria as $c)
+              <a class="dropdown-item" href="{{ route('comanda_novoPedido', ['id' => $comanda->id, 'categoria_id' => $c->id]) }}">
+                <img class="list-img-action" src="{{ Storage::url($c->icone) }}" alt="img_editar">
+                {{ $c->nome }}
+              </a>
+            @endforeach
+          </div>
+        </div>
+
+
+
+
 
         @if($comanda->itens->count('valor') > 0.01)
           <!-- Botão PagarComanda -->
@@ -59,9 +81,24 @@
         {{ $ci->nome }}
       </div>
       <div class="col-3 text-center ">
-        <span class="valorItem" required data-a-sign="R$ " data-a-dec="," data-a-sep="." data-v-max="999.99" data-v-min="0.01">{{ $ci->valor }}</span>
+        <span class="valorItem">
+          R$ {{ $ci->valorTotalComAdicionais($ci->pivot->id) }}
+        </span>
       </div>
       <div class="col-3 text-right">
+        @if($ci->pivot->observacao <> null)
+          <div class="btn-group dropright">
+            <button type="button" class="botao-categoria-excluir" data-toggle="dropdown" ><img class="list-img-action" src="{{ asset('img/observation.png') }}" alt="img_excluir"></button>
+            <div class="dropdown-menu p-2" style="min-width: 20rem; max-width: 30rem;">
+              <div class="text-center" style="color: #3490dc; ">
+                <span>Observação</span>
+              </div>
+
+              <p style="min-height: 10rem; overflow: hidden">{{ $ci->pivot->observacao }}</p>
+            </div>
+          </div>
+          @endif
+
         <!-- Botão excluir -->
         <button type="button" class="botao-categoria-excluir" onclick="abrirModal({{$ci->pivot->id}}, '{{ route('comanda_apagar_item', ['id' => $comanda->id, 'idItem' => $ci->pivot->id]) }}' )" data-toggle="modal" data-target="#modalExcluir"><img class="list-img-action" src="{{ asset('img/garbage.png') }}" alt="img_excluir"></button>
       </div>
