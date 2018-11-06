@@ -37,7 +37,7 @@
       <div class="col-5 text-left" style="transform: translateY(10%)">
         Valor total:
         <span>
-          {{ $comanda->itens->sum('valor') }}
+          R$ {{ $valorTotalComandaFormatado }}
         </span>
       </div>
       <div class="col-4 text-right">
@@ -118,7 +118,9 @@
         Valor total:
       </div>
       <div class="col-3 text-center">
-        <span class="valorItem" required data-a-sign="R$ " data-a-dec="," data-a-sep="." data-v-max="999.99" data-v-min="0.01">{{ $comanda->itens->sum('valor') }}</span>
+        <span>
+          R$ {{ $valorTotalComandaFormatado }}
+        </span>
       </div>
     </div>
   </div>

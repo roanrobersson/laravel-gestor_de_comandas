@@ -33,7 +33,7 @@
 
       <div class="row comanda-Fechar-Item">
         <div class="col-9">
-          Total de pedidos:
+          Pedidos:
         </div>
         <div class="col-3 text-center">
           <span>{{ $comanda->itens->count()}}</span>
@@ -52,7 +52,7 @@
           Desconto:
         </div>
         <div class="col-3 text-center">
-          <input type="text" name="valorDesconto" value="0.00" class="form-control text-right valorItem text-center" placeholder="Valor" required data-a-sign="R$ " data-a-dec="," data-a-sep="." data-v-max="999.99" data-v-min="0.00">
+          <input type="text" name="valorDesconto" value="0.00" class="form-control text-right valorItem text-center" placeholder="Valor" required data-a-sign="R$ " data-a-dec="," data-a-sep="." data-v-max="{{ $comanda->itens->sum('valor') }}" data-v-min="0.00">
         </div>
       </div>
       <div class="row comanda-ValorTotal rounded mt-5">

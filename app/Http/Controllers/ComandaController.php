@@ -39,7 +39,18 @@ class ComandaController extends Controller
       $comanda = Comanda::find($id);
       $categoria = Categoria::all();
 
-      return view('comanda_ver')->with(compact('comanda'))->with(compact('categoria'));
+      $valorTotalComanda = 0;
+
+      foreach($comanda->itens as $ci){
+        $valorTotalComanda += $ci->valorTotalComAdicionais($ci->pivot->id);
+      }
+
+      $valorTotalComandaFormatado = $valorTotalComanda;
+      $valorTotalComandaFormatado = str_replace(".", ",", $valorTotalComandaFormatado);
+
+
+
+      return view('comanda_ver')->with(compact('comanda'))->with(compact('categoria'))->with('valorTotalComandaFormatado', $valorTotalComandaFormatado);
     }
 
 
@@ -184,7 +195,7 @@ class ComandaController extends Controller
       if ($valorDescontoFormatado > 0.00) {
         $comanda->desconto = $valorDescontoFormatado;
       }
-
+      
       $comanda->paga = true;
       $comanda->save();
       return redirect()->route('comanda_listar')->with('alert', 'Comanda finalizada com sucesso!')
