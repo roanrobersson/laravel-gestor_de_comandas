@@ -68,9 +68,6 @@
                                 <a class="nav-link" href="{{ route('adicional_listar') }}">Cadastro de adicionais</a>
                             </li>
 
-                            <li class="nav-item d-flex justify-content-start">
-                                <a class="nav-link" href="{{ route('usuario_listar') }}">Cadastro de usuários</a>
-                            </li>
                           @endif
 
                             <li class="nav-item dropdown">
