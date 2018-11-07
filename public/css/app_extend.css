@@ -213,7 +213,7 @@ main {
 /* Lista Comandas */
 
 /* Comanda Ver */
-.dropdown-item {
+.dropdown-item .item {
     height: 10vh !important;
     width: 50vw !important;
     max-width: 300px !important;

@@ -52,7 +52,7 @@
               <span>Selecione uma categoria</span>
             </div>
             @foreach($categoria as $c)
-              <a class="dropdown-item" href="{{ route('comanda_novoPedido', ['id' => $comanda->id, 'categoria_id' => $c->id]) }}">
+              <a class="dropdown-item item" href="{{ route('comanda_novoPedido', ['id' => $comanda->id, 'categoria_id' => $c->id]) }}">
                 <img class="list-img-action" src="{{ Storage::url($c->icone) }}" alt="img_editar">
                 {{ $c->nome }}
               </a>
