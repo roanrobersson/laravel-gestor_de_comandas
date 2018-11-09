@@ -76,7 +76,7 @@ class CategoriaController extends Controller
   public function atualizar(Request $request, $id)
   {
     $nome = $request->nome;
-    $categoria = Categoria::where('nome', $nome)->first();
+    $categoria = Categoria::where('nome', $nome)->where('id', '<>', $id)->first();
 
     if( !isset($categoria) )
     {
