@@ -13,7 +13,7 @@
           'btnOKText' => 'Excluír']);
   @endmodal
 
-<div class="container p-0">
+<div class="container">
 
   <div class="list-group-flush lista-categorias">
 

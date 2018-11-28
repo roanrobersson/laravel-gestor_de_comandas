@@ -33,7 +33,7 @@
 </script>
 
 
-<div class="container p-0">
+<div class="container">
 
   <input class="pesquisaInput rounded" id="pesquisaInput" type="text" placeholder="Pesquisar comanda..">
 

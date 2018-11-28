@@ -14,5 +14,10 @@ class Adicional extends Model
       return $this->belongsTo('App\Categoria');
   }
 
+  public function comandas()
+  {
+    return $this->belongsToMany('App\Comanda');
+  }
+
 
 }

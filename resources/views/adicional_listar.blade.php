@@ -19,7 +19,7 @@
     });
   </script>
 
-<div class="container p-0">
+<div class="container">
 
 
   <div class="accordion" id="accordionExample">

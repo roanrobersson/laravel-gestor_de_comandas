@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Item;
 use App\Categoria;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\DB;
 
 class CardapioController extends Controller
 {
@@ -129,10 +130,21 @@ class CardapioController extends Controller
   public function apagar($id)
   {
     $item = Item::find($id);
-    $item->delete();
 
-    return redirect()->route('cardapio_listar')->with('alert', 'Item excluido com sucesso!')
-                                               ->with('alertClass', 'alert-success');
+    $temp = DB::table('comanda_item')->where('item_id', $id)->get();
+    $c = count($temp);
+
+    if ($c == 0) {
+      $item->delete();
+      return redirect()->route('cardapio_listar')->with('alert', 'Item excluido com sucesso!')
+                                                  ->with('alertClass', 'alert-success');
+    }
+    else
+    {
+      return redirect()->route('cardapio_listar')->with('alert', 'Esse adicional não pode ser excluída pois está relacionada a itens do cardápio e/ou adicionais!')
+                                                  ->with('alertClass', 'alert-danger');
+    }
+
   }
 
 }

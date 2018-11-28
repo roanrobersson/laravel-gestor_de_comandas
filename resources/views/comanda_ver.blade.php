@@ -18,7 +18,7 @@
     });
   </script>
 
-<div class="container p-0">
+<div class="container">
 
 
 
@@ -80,12 +80,12 @@
       <div class="col-6">
         {{ $ci->nome }}
       </div>
-      <div class="col-3 text-center ">
+      <div class="col-2 text-center ">
         <span class="valorItem">
           R$ {{ $ci->valorTotalComAdicionais($ci->pivot->id) }}
         </span>
       </div>
-      <div class="col-3 text-right">
+      <div class="col-4 text-right">
         @if($ci->pivot->observacao <> null)
           <div class="btn-group dropright">
             <button type="button" class="botao-categoria-excluir" data-toggle="dropdown" ><img class="list-img-action" src="{{ asset('img/observation.png') }}" alt="img_excluir"></button>

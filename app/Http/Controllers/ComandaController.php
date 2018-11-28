@@ -11,6 +11,7 @@ use App\Item;
 use App\Categoria;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Collection;
 
 class ComandaController extends Controller
 {
@@ -103,6 +104,12 @@ class ComandaController extends Controller
     public function apagar($id)
     {
       $comanda = Comanda::find($id);
+      $ids = DB::table('comanda_item')->where('comanda_id', $id)->pluck('id');
+
+      foreach ($ids as $i) {
+        DB::table('adicional_comanda_item')->where('comanda_item_id', $i)->delete();
+      }
+
       $comanda->itens()->detach();
       $comanda->delete();
       return redirect()->route('comanda_listar')->with('alert', 'Comanda excluída com sucesso!')
@@ -115,6 +122,9 @@ class ComandaController extends Controller
     public function apagarItem($id, $pivotId)
     {
       $comanda = Comanda::find($id);
+
+      DB::table('adicional_comanda_item')->where('comanda_item_id', $pivotId)->delete();
+
       $comanda->itens()->wherePivot('id', $pivotId)->detach();
 
       return redirect()->back()->with('alert', 'Item excluído com sucesso!')
@@ -195,7 +205,7 @@ class ComandaController extends Controller
       if ($valorDescontoFormatado > 0.00) {
         $comanda->desconto = $valorDescontoFormatado;
       }
-      
+
       $comanda->paga = true;
       $comanda->save();
       return redirect()->route('comanda_listar')->with('alert', 'Comanda finalizada com sucesso!')

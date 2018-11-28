@@ -19,7 +19,7 @@
     });
   </script>
 
-<div class="container p-0">
+<div class="container ">
 
 
   <div class="accordion" id="accordionExample">
@@ -45,10 +45,10 @@
               @foreach ($c->itens->sortBy("nome") as $i)
               <div class="container">
                 <div class="row lista-itens-cardapio-linha">
-                  <div class="col-4">
+                  <div class="col-5">
                     {{ $i->nome }}
                   </div>
-                  <div class="col-4 text-center">
+                  <div class="col-3 text-center">
                     <span class="valorItem" required data-a-sign="R$ " data-a-dec="," data-a-sep="." data-v-max="999.99" data-v-min="0.01">{{ $i->valor }}</span>
                   </div>
                   <div class="col-4 text-right">

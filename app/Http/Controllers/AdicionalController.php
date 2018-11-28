@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Categoria;
 use App\Adicional;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\DB;
 
 class AdicionalController extends Controller
 {
@@ -129,10 +130,21 @@ class AdicionalController extends Controller
   public function apagar($id)
   {
     $adicional = Adicional::find($id);
-    $adicional->delete();
 
-    return redirect()->route('adicional_listar')->with('alert', 'Adicional excluido com sucesso!')
-                                               ->with('alertClass', 'alert-success');
+    $temp = DB::table('adicional_comanda_item')->where('adicional_id', $id)->get();
+    $c = count($temp);
+
+    if ($c == 0) {
+      $adicional->delete();
+      return redirect()->route('adicional_listar')->with('alert', 'Adicional excluido com sucesso!')
+                                                  ->with('alertClass', 'alert-success');
+    }
+    else
+    {
+      return redirect()->route('adicional_listar')->with('alert', 'Esse adicional não pode ser excluída pois está relacionada a itens do cardápio e/ou adicionais!')
+                                                  ->with('alertClass', 'alert-danger');
+    }
+
   }
 
 }
