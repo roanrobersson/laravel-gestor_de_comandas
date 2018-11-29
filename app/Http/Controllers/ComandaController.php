@@ -138,7 +138,18 @@ class ComandaController extends Controller
     {
       $comanda = Comanda::find($id);
 
-      return view('comanda_pagar')->with(compact('comanda'));
+
+      $valorTotalComanda = 0;
+
+      foreach($comanda->itens as $ci){
+        $valorTotalComanda += $ci->valorTotalComAdicionais($ci->pivot->id);
+      }
+
+      $valorTotalComandaFormatado = $valorTotalComanda;
+      $valorTotalComandaFormatado = str_replace(".", ",", $valorTotalComandaFormatado);
+
+
+      return view('comanda_pagar')->with(compact('comanda'))->with('valorTotalComandaFormatado', $valorTotalComandaFormatado)->with('valorTotalComanda', $valorTotalComanda);
     }
 
     /**
